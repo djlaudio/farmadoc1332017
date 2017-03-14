@@ -1,0 +1,1 @@
+[16-May-2016 21:58:31 UTC] PHP Fatal error:  Call to a member function fetch_array() on a non-object in /home/newserver2016/public_html/marcasgenuinas.com/krikri20/core/modules/ventas/view/processlogin/widget-default.php on line 17
