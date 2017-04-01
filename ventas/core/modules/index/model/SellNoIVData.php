@@ -1,4 +1,6 @@
 <?php
+
+include ('connect_db.php')
 class SellData {
   public static $tablename = "sell_no_iv";
 
@@ -20,13 +22,6 @@ class SellData {
 
 
 
-// Create connection
-$link=mysqli_connect("localhost","wtjjventas2018","wtjjventas2018","wtjjventas2016");
-
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -51,12 +46,7 @@ echo $max_id;
 public function addCreditos_with_client()
 {
 
-$link=mysqli_connect("localhost","wtjjventas2018","wtjjventas2018","wtjjventas2016");
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
