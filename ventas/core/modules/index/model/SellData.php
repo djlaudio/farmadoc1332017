@@ -1,6 +1,6 @@
 <?php
 
-include ('connect_db.php');
+
 
 class SellData {
   public static $tablename = "sell";
@@ -27,7 +27,7 @@ class SellData {
 
   public function add(){
 
-   
+   include ('connect_db.php');
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
@@ -48,6 +48,9 @@ echo $max_id;
 
 
   public static function getLastId2($tieneIV){
+
+    include ('connect_db.php');
+    
     $sql = "select MAX(id2) id2 FROM sell where iv=$tieneIV";
     $max="";
 
@@ -65,7 +68,7 @@ echo $max_id;
 public function addCreditos(){
 
 // Create connection
-
+include ('connect_db.php');
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -85,7 +88,7 @@ echo $max_id;
  public function addSellNoIv(){
 
  // Create connection
- 
+ include ('connect_db.php');
 
  $max = "SELECT MAX(idSellNoIV) as max_id FROM sell_no_iv";
  $max1 =  mysqli_query($link, $max);
@@ -107,7 +110,7 @@ public function addCreditos_with_client()
 {
 
 
-
+include ('connect_db.php');
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
 $row = mysqli_fetch_assoc($max1);
@@ -129,7 +132,7 @@ echo $max_id;
 
   public function add_with_client(){
 
- 
+ include ('connect_db.php');
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
@@ -225,7 +228,7 @@ echo $max_id;
   }
 
   public static function getSaldoCliente($cedulaCliente){
-
+include ('connect_db.php');
 $sql = "select SUM( credito.saldoActual ) AS saldoActual
 FROM dia d
 INNER JOIN credito ON d.numDia = credito.diaPago

@@ -198,7 +198,7 @@ $product = ProductData::getById($p["product_id"]);
     <?php
 $clients = PersonData::getClients();
     ?>
-    <select name="client_id" class="form-control">
+    <select name="client_id" class="form-control"  onchange="loadDiseases(this.value);">
    
     <?php foreach($clients as $client):?>
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
@@ -211,7 +211,18 @@ $clients = PersonData::getClients();
   <div class="form-group">
     <label for="padecimiento" class="col-lg-2 control-label">Padecimiento</label>
     <div class="col-lg-10">
-      <input type="text" name="padecimiento" class="form-control"  id="padecimiento" placeholder="Digite el padecimiento">
+
+
+ <?php
+$diseases = DiseaseData::getAll();
+    ?>
+    <select name="disease_id" class="form-control"  onchange="loadDiseases(this.value);">
+   
+    <?php foreach($diseases as $disease):?>
+      <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
+    <?php endforeach;?>
+      </select>
+      
     </div>
   </div>
 
@@ -231,6 +242,9 @@ $products = SellData::getSells();
     </div>
   </div>
 
+ <div id="divDisease">
+<!-- Esto es para cargar los datos de la respuesta de jscript -->
+                </div>
 
 <!-- Acá termina sistema de farmacias -->
 
@@ -374,6 +388,42 @@ granTotal=($total-discount+valorIV);
 	});   */
 
 </script>
+
+<script>
+
+
+function loadDiseases(idClient)
+{
+
+alert(idClient);
+   $.ajax({
+     type: 'post',
+     url: 'loadDiseases.php',
+     data: {
+       idClient:idClient,
+     },
+
+ beforeSend: function () {
+       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+       alert ("Procesando, espere por favor...");
+},
+     success: function (response) {
+       document.getElementById("divDisease").innerHTML=response;
+       alert (response);
+
+     },
+
+     error: function (jqXHR, status, err) {
+    alert("Local error callback.");
+  },
+   });
+
+}
+
+</script>
+
+
+
 </div>
 </div>
 

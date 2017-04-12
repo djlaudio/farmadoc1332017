@@ -76,7 +76,7 @@ $_SESSION["errors"] = $errors;
 		if($process==true){
 			$sell = new SellData();
 			$sell->user_id = $_SESSION["user_id"];
-			$sell->padecimiento = $_POST["padecimiento"];
+			// $sell->padecimiento = $_POST["padecimiento"];
 			$sell->termino_id = $_POST["termino_id"];
 			$sell->tipo_pago = $_POST["tipo_pago"];
 			$sell->dia_pago = $_POST["dia_pago"];

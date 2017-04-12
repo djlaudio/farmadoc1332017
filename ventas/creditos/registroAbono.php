@@ -131,18 +131,19 @@ echo $idCredito;
 
 
 // Si es vendedor de calle se devuelve a lo de antes, sino se envía a imprimir. (Si es de tienda)
-if ($_SESSION['idTipoClientes']==1)
+if ($tipoCliente==1)
 {
 
 
 
-require_once 'sendSmsAbono.php';
+
           echo "<p>Mensaje procesado correctamente</p>";
 echo ("<script>window.history.back();</script>");
 }
-elseif ($_SESSION['idTipoClientes']==2)
+elseif ($tipoCliente==2)
 {
 
+ echo "<p>Se enviara sms ahora</p>";
 require_once 'sendSmsAbono.php';
           echo "<p>Mensaje procesado correctamente</p>";
 
