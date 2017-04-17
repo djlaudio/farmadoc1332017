@@ -1,5 +1,6 @@
 <?php
 include('connect_db.php');
+
 		
 $idCredito = $_POST['idCredito'];
 $cuenta	=1;		
