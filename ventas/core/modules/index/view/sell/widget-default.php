@@ -33,12 +33,41 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#product_code").keydown(function(e){
         if(e.which==17 || e.which==74){
+
             e.preventDefault();
         }else{
             console.log(e.which);
         }
     })
 });
+
+// $(document).ready(function(){
+//     $("#client_id").on('change',function(){
+        
+       
+// // Llamar desde aqui a funcion JAVAScript
+// // loadClientData($("#client_id").val());
+//         }
+//     })
+// });
+
+$(document).ready(function(){
+    $("#disease_id").on('change', function(){
+
+/* Lo siguiente es el valor del total menos el descuento */
+     
+        
+        
+        loadClientData($("#client_id").val());
+
+        
+
+       
+    
+
+    });
+});
+
 
 $(document).ready(function(){
     $("#iv").on('change', function(){
@@ -135,6 +164,10 @@ $total_iv=$("#total").val()- $("#discount").val();
 
 </script>
 
+<?php 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT); ?>
+
 <?php if(isset($_SESSION["errors"])):?>
 <h2>Errores</h2>
 <p></p>
@@ -198,7 +231,7 @@ $product = ProductData::getById($p["product_id"]);
     <?php
 $clients = PersonData::getClients();
     ?>
-    <select name="client_id" class="form-control"  onchange="loadDiseases(this.value);">
+    <select name="client_id" id="client_id" class="form-control"  onchange="loadDiseases(this.value);">
    
     <?php foreach($clients as $client):?>
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
@@ -216,7 +249,7 @@ $clients = PersonData::getClients();
  <?php
 $diseases = DiseaseData::getAll();
     ?>
-    <select name="disease_id" class="form-control"  onchange="loadDiseases(this.value);">
+    <select name="disease_id" id="disease_id" class="form-control">
    
     <?php foreach($diseases as $disease):?>
       <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
@@ -395,21 +428,21 @@ granTotal=($total-discount+valorIV);
 function loadDiseases(idClient)
 {
 
-alert(idClient);
+
    $.ajax({
      type: 'post',
-     url: 'loadDiseases.php',
+     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/loadDiseases.php',
      data: {
        idClient:idClient,
      },
 
  beforeSend: function () {
        document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
-       alert ("Procesando, espere por favor...");
+      
 },
      success: function (response) {
        document.getElementById("divDisease").innerHTML=response;
-       alert (response);
+      
 
      },
 
@@ -418,6 +451,77 @@ alert(idClient);
   },
    });
 
+}
+
+</script>
+
+<script>
+
+// function loadClientData(idClient)
+// {
+
+
+// alert("jscript is running pero no quire server concatooo");
+//    $.ajax({
+//      type: 'post',
+//      url: 'functionClienteContacato3.php',
+//      data: {
+//        idPersona:idClient,
+//      },
+
+// //  beforeSend: function () {
+// //        document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+// //        alert ("Procesando, espere por favor...");
+// // },
+//      success: function (response) {
+//       alert(response);
+//        document.getElementById("divDisease").innerHTML=response;
+//        alert ("jscript ran sucess");
+
+//      },
+
+//   //    error: function (jqXHR, status, err) {
+//   //   alert("Local error callback.");
+//   // },
+//    });
+
+// }
+
+</script>
+
+
+<script>
+  function loadClientData(idClient)
+{
+
+   $.ajax({
+     type: 'post',
+     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/functionInfoCliente.php',
+     data: {
+       idPersona:idClient
+     },
+
+
+      beforeSend: function () {
+       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+}
+
+
+     success: function (response) {
+       
+       document.getElementById("divDisease").innerHTML=response;
+
+// document.getElementById("horaDePago").value= $("#selComboCreditos option:selected").html().substring($("#selComboCreditos option:selected").html().indexOf("horaDePago"),9);
+     }
+   });
+}
+</script>
+
+<script>
+
+function javaTest()
+{
+  alert("This is running");
 }
 
 </script>
