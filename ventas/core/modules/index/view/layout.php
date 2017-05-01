@@ -59,6 +59,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=products"><i class="fa fa-glass"></i> Productos</a></li>
           <li><a href="index.php?view=categories"><i class="fa fa-th-list"></i> Categorias </a></li>
           <li><a href="index.php?view=diseases"><i class="fa fa-th-list"></i> Padecimientos </a></li>
+          <li><a href="index.php?view=affiliates"><i class="fa fa-th-list"></i> Afiliados </a></li>
           <li><a href="index.php?view=clients"><i class="fa fa-smile-o"></i> Clientes </a></li>
           <li><a href="index.php?view=providers"><i class="fa fa-truck"></i> Proveedores</a></li>
             <li class="dropdown">
