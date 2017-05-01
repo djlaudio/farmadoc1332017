@@ -87,7 +87,7 @@ $_SESSION["errors"] = $errors;
 			$sell->total = $_POST["total"];
 			$sell->discount = $_POST["discount"];
 			$sell->esCompra = 0;
-
+            $sell->idDisease= $_POST["disease_id"];
 
 
 

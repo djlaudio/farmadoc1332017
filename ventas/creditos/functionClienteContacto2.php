@@ -3,6 +3,7 @@ include('connect_db.php');
 echo '<script language="javascript">alert("juas");</script>'; 
 		
 $idCredito = $_POST['idCredito'];
+$idCredito = 11;
 $cuenta	=1;		
 $find = mysqli_query($link, "SELECT pe.phone1, pe.phone2, pe.name, pe.address1, cr.horaDePagoNormal, cr.cuotaCredito, cr.saldoActual, cl.tipoCliente, cl.idCliente, cl.calificacion, cl.comentarios, cr.idSell
 							FROM credito cr 

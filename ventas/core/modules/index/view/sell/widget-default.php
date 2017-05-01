@@ -58,7 +58,7 @@ $(document).ready(function(){
      
         
         
-        loadClientData($("#client_id").val());
+        loadClientDiseasesSells($("#client_id").val(), $("#disease_id").val());
 
         
 
@@ -231,7 +231,7 @@ $product = ProductData::getById($p["product_id"]);
     <?php
 $clients = PersonData::getClients();
     ?>
-    <select name="client_id" id="client_id" class="form-control"  onchange="loadDiseases(this.value);">
+    <select name="client_id" id="client_id" class="form-control"  onchange="loadInfoCliente(this.value);">
    
     <?php foreach($clients as $client):?>
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
@@ -260,20 +260,7 @@ $diseases = DiseaseData::getAll();
   </div>
 
 
-  <div class="form-group">
-    <label for="facturas" class="col-lg-2 control-label">Facturas</label>
-    <div class="col-lg-10">
-    <?php
-$products = SellData::getSells();
-    ?>
-    <select name="sell_id" class="form-control">
-    <option value="">-- NINGUNO --</option>
-    <?php foreach($products as $sell):?>
-      <option value="<?php echo $sell->id;?>"><?php echo $sell->id;?></option>
-    <?php endforeach;?>
-      </select>
-    </div>
-  </div>
+ 
 
  <div id="divDisease">
 <!-- Esto es para cargar los datos de la respuesta de jscript -->
@@ -425,7 +412,36 @@ granTotal=($total-discount+valorIV);
 <script>
 
 
-function loadDiseases(idClient)
+function loadInfoCliente(idClient)
+{
+
+
+   $.ajax({
+     type: 'post',
+     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/functionInfoCliente.php',
+     data: {
+       idPersona:idClient,
+     },
+
+ beforeSend: function () {
+       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+      
+},
+     success: function (response) {
+
+       document.getElementById("divDisease").innerHTML=response;
+      
+
+     },
+
+     error: function (jqXHR, status, err) {
+    alert("Local error callback.");
+  },
+   });
+
+}
+
+function loadDiseasesBackup(idClient)
 {
 
 
@@ -441,6 +457,7 @@ function loadDiseases(idClient)
       
 },
      success: function (response) {
+
        document.getElementById("divDisease").innerHTML=response;
       
 
@@ -455,39 +472,6 @@ function loadDiseases(idClient)
 
 </script>
 
-<script>
-
-// function loadClientData(idClient)
-// {
-
-
-// alert("jscript is running pero no quire server concatooo");
-//    $.ajax({
-//      type: 'post',
-//      url: 'functionClienteContacato3.php',
-//      data: {
-//        idPersona:idClient,
-//      },
-
-// //  beforeSend: function () {
-// //        document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
-// //        alert ("Procesando, espere por favor...");
-// // },
-//      success: function (response) {
-//       alert(response);
-//        document.getElementById("divDisease").innerHTML=response;
-//        alert ("jscript ran sucess");
-
-//      },
-
-//   //    error: function (jqXHR, status, err) {
-//   //   alert("Local error callback.");
-//   // },
-//    });
-
-// }
-
-</script>
 
 
 <script>
@@ -498,7 +482,7 @@ function loadDiseases(idClient)
      type: 'post',
      url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/functionInfoCliente.php',
      data: {
-       idPersona:idClient
+       idPersona:idClient,
      },
 
 
@@ -509,9 +493,34 @@ function loadDiseases(idClient)
 
      success: function (response) {
        
+       
        document.getElementById("divDisease").innerHTML=response;
 
 // document.getElementById("horaDePago").value= $("#selComboCreditos option:selected").html().substring($("#selComboCreditos option:selected").html().indexOf("horaDePago"),9);
+     }
+   });
+}
+</script>
+
+
+<script>
+  function loadClientDiseasesSells(idClient, idDisease)
+{
+
+   $.ajax({
+     type: 'post',
+     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/queryClientDisease.php',
+     data: {
+       idClient:idClient,
+       idDisease:idDisease
+     },
+
+     success: function (response) {
+       
+      
+       document.getElementById("divDisease").innerHTML=response;
+
+
      }
    });
 }
