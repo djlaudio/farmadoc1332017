@@ -89,7 +89,7 @@ $data->cedula = $r['cedula'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->lastname = $r['lastname'];
 			$array[$cnt]->email = $r['email1'];
-			$array[$cnt]->username = $r['username'];
+		
 			$array[$cnt]->phone1 = $r['phone1'];
 			$array[$cnt]->address1 = $r['address1'];
 			$array[$cnt]->created_at = $r['created_at'];
