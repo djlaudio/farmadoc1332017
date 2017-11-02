@@ -62,7 +62,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=affiliates"><i class="fa fa-th-list"></i> Afiliados </a></li>
           <li><a href="index.php?view=affiliations"><i class="fa fa-th-list"></i> Afiliaciones </a></li>
           <li><a href="index.php?view=clients"><i class="fa fa-smile-o"></i> Clientes </a></li>
-          <li><a href="index.php?view=providers"><i class="fa fa-truck"></i> Proveedores</a></li>
+          
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Inventario <b class="caret"></b></a>
               <ul class="dropdown-menu">
