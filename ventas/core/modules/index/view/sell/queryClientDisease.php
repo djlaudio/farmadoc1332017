@@ -21,7 +21,7 @@ $idClient= $_POST['idClient'];
 $find= mysqli_query($link,"SELECT * from sell WHERE person_id=$idClient and idDisease= $idDisease");
 while ($row = mysqli_fetch_array($find)) 
 	{?>
-      <option value="<?php echo $row['id'];?>"><?php echo $row['id'];?></option>
+      <option value="<?php echo $row['id'];?>"><?php echo $row['id2'];?></option>
     <?php } ?>
       </select>
     </div>

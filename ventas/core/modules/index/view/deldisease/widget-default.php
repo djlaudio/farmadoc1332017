@@ -1,6 +1,6 @@
 <?php
 
-$disease = Diseasedata::getById($_GET["id"]);
+$disease = DiseaseData::getById($_GET["id"]);
 
 
 $disease->del();

@@ -81,6 +81,24 @@ $categories = CategoryData::getAll();
   </div>
 
   <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Inventario inicial:</label>
+    <div class="col-md-6">
+      <input type="text" name="q" class="form-control" id="inputEmail1" placeholder="Inventario inicial">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPromocionado" class="col-lg-2 control-label">Promocionado</label>
+    <div class="col-md-6">
+    <select name="promo_id" class="form-control">
+    <option value="0">-- No --</option>
+    <option value="1">-- Si --</option>
+    
+      </select>   
+       </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <button type="submit" class="btn btn-primary">Agregar Producto</button>
     </div>

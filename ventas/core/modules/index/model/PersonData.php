@@ -4,6 +4,7 @@ class PersonData {
 
 
 	public function PersonData(){
+		$this->cedula = "";
 		$this->name = "";
 		$this->lastname = "";
 		$this->email = "";
@@ -14,8 +15,8 @@ class PersonData {
 	}
 
 	public function add_client(){
-		$sql = "insert into person (name,lastname,address1,email1,phone1,kind,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->address1\",\"$this->email1\",\"$this->phone1\",1,$this->created_at)";
+		$sql = "insert into person (cedula, name,lastname,address1,email1,phone1,kind,created_at) ";
+		$sql .= "value (\"$this->cedula\",\"$this->name\",\"$this->lastname\",\"$this->address1\",\"$this->email1\",\"$this->phone1\",1,$this->created_at)";
 		Executor::doit($sql);
 	}
 

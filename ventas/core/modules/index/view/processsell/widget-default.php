@@ -2,6 +2,7 @@
 
 if(isset($_SESSION["cart"])){
 	$cart = $_SESSION["cart"];
+
 	if(count($cart)>0)
 		{
 			//si la cuenta de lineas es mayor a 10 le dice al cliente que no puede, ya que no cabe en la factura
@@ -34,6 +35,42 @@ if(isset($_SESSION["cart"])){
 				$qyf =OperationData::getQYesF($c["product_id"]); /// son los productos que puedo facturar
 				if($c["q"]<=$qyf){
 					$num_succ++;
+
+					$productCount= Promo_provider_Data::getCountById($c["product_id"]);
+if ($c["product_id"]==7)
+{
+
+
+echo ("es la cantidad vendida" + $productCount);
+
+{
+	$message = "Este es el producto clave ";
+	echo '<script language="javascript">';
+					echo 'alert($message)';
+echo '</script>';
+}
+					if ($productCount==3)
+{
+					echo '<script language="javascript">';
+					echo 'alert("Usted tiene una regalia por haber comprado ya 3 productos +")';
+echo '</script>';
+
+
+
+Promo_provider_Data::updateProviderDataTo0($c["product_id"], 0);
+}
+else
+{
+Promo_provider_Data::updateProviderDataBy1($c["product_id"], $productCount);
+}
+}
+//Here goes the advisment if the count is >4 
+
+				//	If count(product) == 3 then
+				//	advise customer have one free.
+
+
+
 				}else{
 				$error = array("product_id"=>$c["product_id"],"message"=>"No hay suficiente cantidad de producto para facturar en inventario.");
 				$errors[count($errors)] = $error;
@@ -103,16 +140,6 @@ $credito->diaPago = $_POST["dia_pago"];
 $credito->saldoActual = $credito ->cantidadCredito;
 $credito->termino_id = $_POST["termino_id"];
 $credito->esCompra = 0;
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -21,8 +21,8 @@ class UserData {
 
 
 public function addClient(){
-		$sql = "insert into person (name,lastname,username,email,is_admin,password,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
+		$sql = "insert into person (cedula, name,lastname,username,email,is_admin,password,created_at) ";
+		$sql .= "value (\"$this->cedula\",\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
 		Executor::doit($sql);
 	}
 

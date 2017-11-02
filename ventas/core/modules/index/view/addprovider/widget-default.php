@@ -2,6 +2,7 @@
 
 if(count($_POST)>0){
 	$user = new PersonData();
+	$user->cedula = $_POST["cedula"];
 	$user->name = $_POST["name"];
 	$user->lastname = $_POST["lastname"];
 	$user->address1 = $_POST["address1"];
