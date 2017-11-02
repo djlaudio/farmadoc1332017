@@ -1,74 +1,57 @@
 <div class="row">
-	<div class="col-md-12">
-<div class="btn-group pull-right">
-	
-<div class="btn-group pull-right">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-download"></i> Descargar <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="report/clients-word.php">Word 2007 (.docx)</a></li>
-  </ul>
-</div>
-</div>
-		<h1>Directorio de Clientes</h1>
+<div class="col-md-12">
+<h1>Nuevo Cliemte</h1>
 <br>
-		<?php
+	<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=addclient" role="form">
 
-$user_id = $_SESSION["user_id"];
-$usersession = UserData::getById($user_id);
+<div class="form-group">
+<label for="inputCedula" class="col-lg-2 control-label">Cedula*</label>
+<div class="col-md-6">
+  <input type="text" name="cedula" class="form-control" id="cedula" placeholder="Cedula">
+</div>
+</div>
 
-		$users = PersonData::getClients();
-		if(count($users)>0){
-			// si hay usuarios
-			?>
+<div class="form-group">
+<label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
+<div class="col-md-6">
+  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre">
+</div>
+</div>
+<div class="form-group">
+<label for="inputEmail1" class="col-lg-2 control-label">Apellido*</label>
+<div class="col-md-6">
+  <input type="text" name="lastname" required class="form-control" id="lastname" placeholder="Apellido">
+</div>
+</div>
+<div class="form-group">
+<label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
+<div class="col-md-6">
+  <input type="text" name="address1" class="form-control" required id="address1" placeholder="Direccion">
+</div>
+</div>
+<div class="form-group">
+<label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
+<div class="col-md-6">
+  <input type="text" name="email1" class="form-control" id="email1" placeholder="Email">
+</div>
+</div>
 
-			<table class="table table-bordered table-hover">
-			<thead>
-			<th>Cedula</th>
-			<th>Nombre completo</th>
-			<th>Direccion</th>
-			<th>Email</th>
-			<th>Telefono</th>
-			<th></th>
-			</thead>
-			<?php
-			foreach($users as $user){
-				?>
-				<tr>
-				<td><?php echo $user->cedula; ?></td>
-				<td><?php echo $user->name." ".$user->lastname; ?></td>
-				<td><?php echo $user->address1; ?></td>
-				<td><?php echo $user->email1; ?></td>
-				<td><?php echo $user->phone1; ?></td>
-				<td style="width:130px;">
-
-
-<?php if($usersession->is_admin):?>
-   					
-    					
-	<a href="index.php?view=editclient&id=<?php echo $user->id;?>" class="btn btn-warning btn-xs">Editar</a>
-				<a href="index.php?view=delclient&id=<?php echo $user->id;?>" class="btn btn-danger btn-xs">Eliminar</a>
-		<?php endif; ?>
-
-
-
-				
-				</td>
-				</tr>
-				<?php
-
-			}
+<div class="form-group">
+<label for="inputEmail1" class="col-lg-2 control-label">Telefono*</label>
+<div class="col-md-6">
+  <input type="text" name="phone1" class="form-control" id="phone1" placeholder="Telefono">
+</div>
+</div>
 
 
 
-		}else{
-			echo "<p class='alert alert-danger'>No hay clientes</p>";
-		}
+<p class="alert alert-info">* Campos obligatorios</p>
 
-
-		?>
-
-
-	</div>
+<div class="form-group">
+<div class="col-lg-offset-2 col-lg-10">
+  <button type="submit" class="btn btn-primary">Agregar Cliente</button>
+</div>
+</div>
+</form>
+</div>
 </div>
