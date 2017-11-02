@@ -5,7 +5,12 @@
 	<br>
 		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=updateclient" role="form">
 
-
+    <div class="form-group">
+    <label for="inputCedula" class="col-lg-2 control-label">Cedula*</label>
+    <div class="col-md-6">
+      <input type="text" name="cedula" value="<?php echo $user->cedula;?>" class="form-control" id="cedula" placeholder="Nombre">
+    </div>
+  </div>
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Nombre*</label>
     <div class="col-md-6">

@@ -64,13 +64,14 @@ class PersonData {
 		$data = new PersonData();
 		while($r = $query[0]->fetch_array()){
 			$data->id = $r['id'];
+			$data->cedula = $r['cedula'];
 			$data->name = $r['name'];
 			$data->lastname = $r['lastname'];
 			$data->address1 = $r['address1'];
 			$data->phone1 = $r['phone1'];
 			$data->email1 = $r['email1'];
 			$data->created_at = $r['created_at'];
-$data->cedula = $r['cedula'];
+
 			$found = $data;
 			break;
 		}
@@ -86,6 +87,7 @@ $data->cedula = $r['cedula'];
 		$cnt = 0;
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new PersonData();
+			$array[$cnt]->cedula = $r['cedula'];
 			$array[$cnt]->id = $r['id'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->lastname = $r['lastname'];
@@ -107,6 +109,7 @@ $data->cedula = $r['cedula'];
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new PersonData();
 			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->cedula = $r['cedula'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->lastname = $r['lastname'];
 			$array[$cnt]->email1 = $r['email1'];
@@ -127,6 +130,7 @@ $data->cedula = $r['cedula'];
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new PersonData();
 			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->cedula = $r['cedula'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->lastname = $r['lastname'];
 			$array[$cnt]->email1 = $r['email1'];
@@ -146,6 +150,7 @@ $data->cedula = $r['cedula'];
 		while($r = $query[0]->fetch_array()){
 			$array[$cnt] = new PersonData();
 			$array[$cnt]->id = $r['id'];
+			$array[$cnt]->cedula = $r['cedula'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->mail = $r['mail'];
 			$array[$cnt]->created_at = $r['created_at'];

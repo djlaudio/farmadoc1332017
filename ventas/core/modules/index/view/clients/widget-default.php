@@ -25,6 +25,7 @@ $usersession = UserData::getById($user_id);
 
 			<table class="table table-bordered table-hover">
 			<thead>
+			<th>Cedula</th>
 			<th>Nombre completo</th>
 			<th>Direccion</th>
 			<th>Email</th>
@@ -35,6 +36,7 @@ $usersession = UserData::getById($user_id);
 			foreach($users as $user){
 				?>
 				<tr>
+				<td><?php echo $user->cedula; ?></td>
 				<td><?php echo $user->name." ".$user->lastname; ?></td>
 				<td><?php echo $user->address1; ?></td>
 				<td><?php echo $user->email1; ?></td>
