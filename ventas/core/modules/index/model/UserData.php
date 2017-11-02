@@ -19,6 +19,13 @@ class UserData {
 		Executor::doit($sql);
 	}
 
+
+public function addClient(){
+		$sql = "insert into person (name,lastname,username,email,is_admin,password,created_at) ";
+		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->is_admin\",\"$this->password\",$this->created_at)";
+		Executor::doit($sql);
+	}
+
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);

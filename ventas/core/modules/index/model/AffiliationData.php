@@ -1,7 +1,9 @@
 <?php
 class AffiliationData {
+	public static $tablename = "affiliation";
 
-
+	public function getPerson(){ return PersonData::getById($this->idClient);}
+	public function getAffiliate(){ return AffiliateData::getById($this->idAffiliated);}
 
 	public function AffiliationData(){
 		$this->name = "";
@@ -10,6 +12,7 @@ class AffiliationData {
 	}
 
 	public function add(){
+		$sql = "insert into affiliation (name,created_at, idClient, idAffiliated, numAffiliation) ";
 		$sql .= "value (\"$this->name\",$this->created_at,$this->idClient, $this->idAffiliated,$this->numAffiliation)";
 		Executor::doit($sql);
 	}
@@ -76,6 +79,25 @@ class AffiliationData {
 			$cnt++;
 		}
 		return $array;
+	}
+
+	public static function getAllByPage($start_from,$limit){
+		$sql = "select * from ".self::$tablename." where id>=$start_from limit $limit";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new AffiliationData());
+	}
+
+
+	public static function getAllByUserId($user_id){
+		$sql = "select * from ".self::$tablename." where user_id=$user_id order by created_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new AffiliationData());
+	}
+
+	public static function getAllByCategoryId($category_id){
+		$sql = "select * from ".self::$tablename." where category_id=$category_id order by created_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new AffiliationData());
 	}
 
 

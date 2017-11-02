@@ -74,19 +74,19 @@ if($px<=$npaginas):
 		
 		<th></th>
 	</thead>
-	<?php foreach($curr_products as $affiliation):?>
+	<?php foreach($curr_products as $product):?>
 	<tr>
 
 
-		<td><?php $client = $affiliation->getPerson();
+		<td><?php $client = $product->getPerson();
                     echo($client->name." ".$client->lastname);   ?>
                     </td>
 		
-		<td><?php $client = $affiliation->getAffiliate();
+		<td><?php $client = $product->getAffiliate();
                     echo($client->name);   ?>
                     </td>
 		
-		<td><?php echo $affiliation->numAffiliation; ?></td>
+		<td><?php echo $product->numAffiliation; ?></td>
 		
 		
 

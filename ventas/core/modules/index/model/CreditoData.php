@@ -59,7 +59,7 @@ class CreditoData {
 		FROM credito
 		INNER JOIN cliente ON credito.idClienteCredito = cliente.idPersona
 		INNER JOIN persona ON cliente.idPersona = persona.idPersona
-		WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id='137' and credito.anulada='0' and credito.anulada2='0'
+		WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id>=137 and credito.anulada='0' and credito.anulada2='0'
 		order by persona.nombre";
 
 		$query = Executor::doit($sql);
@@ -73,6 +73,12 @@ class CreditoData {
 		}
 		return $array;
 	}
+
+	public static function getById($id){
+     $sql = "select * from ".self::$tablename." where id=$id";
+    $query = Executor::doit($sql);
+    return Model::one($query[0],new CreditoData());
+  }
 
 	public static function getLastId(){
 		$sql = "select MAX(idCredito) idCredito FROM credito";
