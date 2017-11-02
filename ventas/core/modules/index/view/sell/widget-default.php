@@ -234,7 +234,7 @@ $clients = PersonData::getClients();
     <select name="client_id" id="client_id" class="form-control"  onchange="loadInfoCliente(this.value);">
    
     <?php foreach($clients as $client):?>
-    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
+    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname." - ".$client->cedula;?></option>
     <?php endforeach;?>
     	</select>
     </div>
