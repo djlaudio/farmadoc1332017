@@ -7,7 +7,7 @@ $clients = PersonData::getClients();
 	<h1>Expediente Paciente</h1>
 
 						<form>
-						<input type="hidden" name="view" value="sellreports">
+						<input type="hidden" name="view" value="pacienteReports">
 <div class="row">
 <div class="col-md-3">
 
@@ -90,8 +90,8 @@ $clients = PersonData::getClients();
 <?php foreach($operations as $operation):?>
 	<tr>
 		<td><?php echo $operation->id2; ?></td>
-		<td>₡ <?php echo $operation->name; ?></td>
-		<td>₡ <?php echo $operation->q; ?></td>
+		<td>₡ <?php echo $operation->padecimiento; ?></td>
+		<td>₡ <?php echo $operation->id; ?></td>
 		
 	</tr>
 <?php
