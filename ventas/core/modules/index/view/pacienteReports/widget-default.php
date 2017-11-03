@@ -90,8 +90,8 @@ $clients = PersonData::getClients();
 <?php foreach($operations as $operation):?>
 	<tr>
 		<td><?php echo $operation->id2; ?></td>
-		<td>₡ <?php echo $operation->padecimiento; ?></td>
-		<td>₡ <?php echo $operation->id; ?></td>
+		<td><?php echo $operation->padecimiento; ?></td>
+		<td><?php echo $operation->id; ?></td>
 		
 	</tr>
 <?php
