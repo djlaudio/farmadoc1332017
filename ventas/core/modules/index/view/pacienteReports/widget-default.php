@@ -72,7 +72,7 @@ $clients = PersonData::getClients();
 			$operations = SellData::getAllByDateOp($_GET["sd"],$_GET["ed"],2);
 			}
 			else{
-			$operations = SellData::getAllByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 			} 
 
 
@@ -83,21 +83,19 @@ $clients = PersonData::getClients();
 <table class="table table-bordered">
 	<thead>
 		<th>Id</th>
-		<th>Subtotal</th>
-		<th>Descuento</th>
-		<th>Total</th>
-		<th>Fecha</th>
+		<th>Name</th>
+		<th>Cantidad</th>
+		
 	</thead>
 <?php foreach($operations as $operation):?>
 	<tr>
-		<td><?php echo $operation->id; ?></td>
-		<td>₡ <?php echo number_format($operation->total,2,'.',','); ?></td>
-		<td>₡ <?php echo number_format($operation->discount,2,'.',','); ?></td>
-		<td>₡ <?php echo number_format($operation->total-$operation->discount,2,'.',','); ?></td>
-		<td><?php echo $operation->created_at; ?></td>
+		<td><?php echo $operation->id2; ?></td>
+		<td>₡ <?php echo $operation->name; ?></td>
+		<td>₡ <?php echo $operation->q; ?></td>
+		
 	</tr>
 <?php
-$supertotal+= ($operation->total-$operation->discount);
+//$supertotal+= ($operation->total-$operation->discount);
  endforeach; ?>
 
 </table>
