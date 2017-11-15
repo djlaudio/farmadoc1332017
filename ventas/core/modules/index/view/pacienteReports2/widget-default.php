@@ -74,7 +74,7 @@ $clients = PersonData::getClients();
           
 
 			if($_GET["client_id"]==""){
-            $find= mysqli_query($link,"SELECT d.name enfermedad, d.id, o.q, p.name producto, d.name, s.created_at
+            $find= mysqli_query($link,"SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
 FROM disease d
 INNER JOIN operation o ON d.id = o.idDisease
 INNER JOIN sell s ON o.sell_id = s.id
@@ -104,7 +104,7 @@ INNER JOIN product p ON p.id = o.product_id");
              <thead>
                      <th></th>
                      <th>Producto</th>
-                     <th>Total</th>
+                     <th>Factura</th>
                      <th>Fecha</th>
                      <th>Enfermedad</th>
                  
