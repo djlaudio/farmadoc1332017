@@ -1,4 +1,5 @@
 <?php
+include ('connect_db.php');
 $clients = PersonData::getClients();
 ?>
 <section class="content">
@@ -7,7 +8,7 @@ $clients = PersonData::getClients();
 	<h1>Expediente Paciente</h1>
 
 						<form>
-						<input type="hidden" name="view" value="pacienteReports">
+						<input type="hidden" name="view" value="pacienteReports2">
 <div class="row">
 <div class="col-md-3">
 
@@ -68,8 +69,20 @@ $clients = PersonData::getClients();
 			<?php 
 			$operations = array();
 
+
+           
+          
+
 			if($_GET["client_id"]==""){
-			$operations = SellData::getAllLinesByDateOp($_GET["sd"],$_GET["ed"],2);
+            $find= mysqli_query($link,"SELECT d.name enfermedad, d.id, o.q, p.name producto, d.name, s.created_at
+FROM disease d
+INNER JOIN operation o ON d.id = o.idDisease
+INNER JOIN sell s ON o.sell_id = s.id
+INNER JOIN product p ON p.id = o.product_id");
+            $countSells=mysqli_query($link,"SELECT count FROM disease d
+INNER JOIN operation o ON d.id = o.idDisease
+INNER JOIN sell s ON o.sell_id = s.id
+INNER JOIN product p ON p.id = o.product_id");
 			}
 			else{
 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
@@ -78,32 +91,62 @@ $clients = PersonData::getClients();
 
 			 ?>
 
-			 <?php if(count($operations)>0):?>
-			 	<?php $supertotal = 0; ?>
-<table class="table table-bordered">
-	<thead>
-		<th>Id</th>
-		<th>Name</th>
-		<th>Cantidad</th>
-		
-	</thead>
-<?php foreach($operations as $operation):?>
-	<tr>
-		<td><?php echo $operation->id2; ?></td>
-		<td><?php echo $operation->padecimiento; ?></td>
-		<td><?php echo $operation->id; ?></td>
-		
-	</tr>
-<?php
-//$supertotal+= ($operation->total-$operation->discount);
- endforeach; ?>
+			
+                 <table class="table table-bordered table-hover	">
+                 
+             
+             
+                 <?php
+             
+            
+             
+             ?>
+             <thead>
+                     <th></th>
+                     <th>Producto</th>
+                     <th>Total</th>
+                     <th>Fecha</th>
+                     <th>Enfermedad</th>
+                 
+                 </thead>
+               <?php  
+            
+             
+             
+             while ($row = mysqli_fetch_array($find)) 
+                 {?>
+                  <tr>
+                     <td style="width:30px;">
+             
+                     <a href="index.php?view=onesell&id=<?php echo $row['id']; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+             
+                     <td>
 
-</table>
-<h1>Total de ventas: ₡ <?php echo number_format($supertotal,2,'.',','); ?></h1>
-
-			 <?php else:
-			 // si no hay operaciones
-			 ?>
+ <?php echo $row['producto']; ?>
+             
+             <?php
+             //$operations = OperationData::getAllProductsBySellId($row['id']);
+             
+             ?>
+                     <td>
+             
+             <?php
+             
+                     echo $row['q'];
+             
+             ?>			
+             
+                     </td>
+                     <td><?php echo $row['created_at']; ?></td>
+             
+                     <td><?php echo $row['name']; ?></td>
+             
+             
+            
+             
+                     
+                 </tr>
+                 <?php } ?>
 <script>
 	$("#wellcome").hide();
 </script>
@@ -123,7 +166,7 @@ $clients = PersonData::getClients();
 </div>
 <?php endif;?>
 
-		<?php endif; ?>
+	
 	</div>
 </div>
 
