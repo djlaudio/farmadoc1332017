@@ -74,23 +74,16 @@ $clients = PersonData::getClients();
           
 
 			if($_GET["client_id"]==""){
-			$text= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
-FROM disease d
-INNER JOIN operation o ON d.id = o.idDisease
-INNER JOIN sell s ON o.sell_id = s.id
-INNER JOIN product p ON p.id = o.product_id
-where s.created_at> " +  ($_GET["sd"]) + " and s.created_at< " + ($_GET["ed"]) + "";
 
-            $find= mysqli_query($link,"SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
-FROM disease d
-INNER JOIN operation o ON d.id = o.idDisease
-INNER JOIN sell s ON o.sell_id = s.id
-INNER JOIN product p ON p.id = o.product_id
-where s.created_at> '" + ($_GET["sd"]) + "' and s.created_at < '"+ ($_GET["ed"]) + "');
-            $countSells=mysqli_query($link,"SELECT count FROM disease d
-INNER JOIN operation o ON d.id = o.idDisease
-INNER JOIN sell s ON o.sell_id = s.id
-INNER JOIN product p ON p.id = o.product_id");
+				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
+				FROM disease d
+				INNER JOIN operation o ON d.id = o.idDisease
+				INNER JOIN sell s ON o.sell_id = s.id
+				INNER JOIN product p ON p.id = o.product_id";
+							$countSells=mysqli_query($link,"SELECT count FROM disease d
+							INNER JOIN operation o ON d.id = o.idDisease
+							INNER JOIN sell s ON o.sell_id = s.id	INNER JOIN product p ON p.id = o.product_id");
+            $find= mysqli_query($link,$query);
 			}
 			else{
 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
@@ -145,8 +138,8 @@ INNER JOIN product p ON p.id = o.product_id");
              ?>			
              
                      </td>
-                     <td><?php echo $row['created_at']; ?></td>
-             
+                     <!-- <td><?php echo $row['created_at']; ?></td> -->
+					 <td><?php echo $query; ?></td>
                      <td><?php echo $row['name']; ?></td>
              
              
