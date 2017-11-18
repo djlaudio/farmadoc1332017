@@ -9,6 +9,7 @@ if(count($products)>0){
 	<thead>
 		<th>Codigo</th>
 		<th>Nombre</th>
+		<th>Enfermedad</th>
 		<th>Unidad</th>
 		<th>Precio unitario</th>
 		<th>En inventario</th>
@@ -25,6 +26,17 @@ $q= OperationData::getQYesF($product->id);
 	<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
 		<td style="width:80px;"><?php echo $product->id; ?></td>
 		<td><?php echo $product->name; ?></td>
+		<td>
+		<?php
+$diseases = DiseaseData::getAll();
+    ?>
+    <select name="disease_id" id="disease_id" class="form-control">
+   
+    <?php foreach($diseases as $disease):?>
+      <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
+    <?php endforeach;?>
+      </select>
+	  </td>
 		<td><?php echo $product->unit; ?></td>
 		<td><b>$<?php echo $product->price_out; ?></b></td>
 		<td>
@@ -35,6 +47,10 @@ $q= OperationData::getQYesF($product->id);
 
 <div class="input-group">
 		<input type="" class="form-control" required name="q" placeholder="Cantidad ...">
+
+
+
+		
       <span class="input-group-btn">
 		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Agregar</button>
       </span>

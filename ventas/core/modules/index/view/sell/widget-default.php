@@ -22,7 +22,7 @@ $(document).ready(function(){
 	$("#searchp").on("submit",function(e){
 		e.preventDefault();
 
-		$.get("./?action=searchproduct",$("#searchp").serialize(),function(data){
+		$.get("www.segudocpro.com/farmadoc/ventas/index.php?action=searchproduct",$("#searchp").serialize(),function(data){
 			$("#show_search_results").html(data);
 		});
 		$("#product_code").val("");
