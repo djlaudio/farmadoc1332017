@@ -12,7 +12,7 @@ $clients = PersonData::getClients();
 <div class="row">
 <div class="col-md-3">
 
-<select name="client_id" class="form-control">
+<select name="client_id" id="client_id" class="form-control">
 	<option value="">--  TODOS --</option>
 	<?php foreach($clients as $p):?>
 	<option value="<?php echo $p->id;?>"><?php echo $p->name;?></option>
@@ -71,7 +71,7 @@ $clients = PersonData::getClients();
 
 				$date1= $_GET["sd"];
 				$date2= $_GET["ed"];
-           
+				$client_id=  $_GET["client_id"];
           
 
 			if($_GET["client_id"]==""){
@@ -86,16 +86,17 @@ $clients = PersonData::getClients();
 				INNER JOIN operation o ON d.id = o.idDisease
 				INNER JOIN sell s ON o.sell_id = s.id
 				INNER JOIN product p ON p.id = o.product_id ");
-				//echo '<script language="javascript">alert("'.$query.'");</script>';
+				
             $find= mysqli_query($link,$query);
 			}
 			else{
 
-				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
-				FROM disease d
-				INNER JOIN operation o ON d.id = o.idDisease
-				INNER JOIN sell s ON o.sell_id = s.id
-				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "'";
+				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname
+FROM disease d
+INNER JOIN operation o ON d.id = o.idDisease
+INNER JOIN sell s ON o.sell_id = s.id
+INNER JOIN product p ON p.id = o.product_id
+INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
 							$countSells=mysqli_query($link,"SELECT count(*)
 				FROM disease d
 				INNER JOIN operation o ON d.id = o.idDisease
@@ -103,7 +104,7 @@ $clients = PersonData::getClients();
 				INNER JOIN product p ON p.id = o.product_id ");
 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 			} 
-
+			echo '<script language="javascript">alert("'.$query.'");</script>';
 			
 			 ?>
 
@@ -119,7 +120,12 @@ $clients = PersonData::getClients();
              ?>
              <thead>
                      <th></th>
-                     <th>Producto</th>
+                     <th> <?php
+             
+		   echo $_GET["client_id"];
+		   
+             
+             ?></th>
                      <th>Factura</th>
                      <th>Fecha</th>
                      <th>Enfermedad</th>

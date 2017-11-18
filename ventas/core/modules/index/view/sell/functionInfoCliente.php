@@ -24,10 +24,10 @@ if ($cuenta==1)
 if(strlen($row['phone1'] > 0))
 { ?>
 	<div class="form-group">
-		<label class="col-sm-4 control-label" for="tel1">Teléfono 1</label>
+		<label class="col-sm-4 control-label" for="nombreClienteCustom"></label>
 		<div class="col-sm-8">
-			<a href="" name="tel1" id="tel1" > <?php echo $row['phone1']; ?> </a>
-<input type="hidden" name="tele1" value="<?php echo $row['phone1']; ?>">	    		    
+			
+			<input type="text" name="nombreClienteCustom"	  id="nombreClienteCustom"  value="<?php echo $row['name']; ?>">	    		        		    
 		</div>
 	</div>
 <?php } ?>

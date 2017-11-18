@@ -48,7 +48,7 @@ if ($cuenta==1)
 if(strlen($row['phone1'] > 0))
 { ?>
 	<div class="form-group">
-		<label class="col-sm-4 control-label" for="tel1">Teléfono 1</label>
+		<label class="col-sm-4 control-label" for="tel1">Teléfono 1: </label>
 		<div class="col-sm-8">
 			<a href="" name="tel1" id="tel1" > <?php echo $row['phone1']; ?> </a>
 <input type="hidden" name="tele1" value="<?php echo $row['phone1']; ?>">	    		    
@@ -73,7 +73,7 @@ if(strlen($row['idSell'] > 0))
 { ?>
 	
 			
-<input type="hidden" name="nombre" value="<?php echo $row['name']; ?>">	    		    
+<input type="text" name="nombreClienteCustom" value="<?php echo $row['name']; ?>">	    		    
 		
 <?php } ?>
 

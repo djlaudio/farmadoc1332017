@@ -232,14 +232,16 @@ $product = ProductData::getById($p["product_id"]);
 $clients = PersonData::getClients();
     ?>
     <select name="client_id" id="client_id" class="form-control"  onchange="loadInfoCliente(this.value);">
-   
+    <option value="0"><Estimado cliente></option>
     <?php foreach($clients as $client):?>
+
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname." - ".$client->cedula;?></option>
     <?php endforeach;?>
     	</select>
     </div>
   </div>
 
+  <div class="form-group" id="divDisease">
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
   <div class="form-group">
     <label for="padecimiento" class="col-lg-2 control-label">Padecimiento</label>
@@ -262,7 +264,7 @@ $diseases = DiseaseData::getAll();
 
  
 
- <div id="divDisease">
+ 
 <!-- Esto es para cargar los datos de la respuesta de jscript -->
                 </div>
 
