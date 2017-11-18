@@ -240,7 +240,7 @@ $clients = PersonData::getClients();
     	</select>
     </div>
   </div>
-
+  <div class="form-group" id="divClientCustom">  </DIV>
   <div class="form-group" id="divDisease">
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
   <div class="form-group">
@@ -426,12 +426,12 @@ function loadInfoCliente(idClient)
      },
 
  beforeSend: function () {
-       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
       
 },
      success: function (response) {
 
-       document.getElementById("divDisease").innerHTML=response;
+       document.getElementById("divClientCustom").innerHTML=response;
       
 
      },
@@ -477,30 +477,33 @@ function loadDiseasesBackup(idClient)
 
 
 <script>
-  function loadClientData(idClient)
+function loadClientData(idClient)
 {
 
+
+alert("jscript is running");
    $.ajax({
      type: 'post',
-     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/functionInfoCliente.php',
+     url: 'functionInfoCliente.php',
      data: {
        idPersona:idClient,
      },
 
-
-      beforeSend: function () {
-       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
-}
-
-
+ beforeSend: function () {
+       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
+       alert ("Procesando, espere por favor...");
+},
      success: function (response) {
-       
-       
-       document.getElementById("divDisease").innerHTML=response;
+       document.getElementById("divClientCustom").innerHTML=response;
+       alert (response);
 
-// document.getElementById("horaDePago").value= $("#selComboCreditos option:selected").html().substring($("#selComboCreditos option:selected").html().indexOf("horaDePago"),9);
-     }
+     },
+
+     error: function (jqXHR, status, err) {
+    alert("Local error callback.");
+  },
    });
+
 }
 </script>
 

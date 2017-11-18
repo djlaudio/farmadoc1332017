@@ -237,6 +237,7 @@ $clients = PersonData::getClients();
     </div>
   </div>
 
+  <div class="form-group" id="divClientCustom">
   <div class="form-group" id="divDisease">
 <!-- Esto es para cargar los datos de la respuesta de jscript -->
                 </div>
@@ -465,11 +466,11 @@ alert("jscript is running");
      },
 
  beforeSend: function () {
-       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
+       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
        alert ("Procesando, espere por favor...");
 },
      success: function (response) {
-       document.getElementById("divDisease").innerHTML=response;
+       document.getElementById("divClientCustom").innerHTML=response;
        alert (response);
 
      },
