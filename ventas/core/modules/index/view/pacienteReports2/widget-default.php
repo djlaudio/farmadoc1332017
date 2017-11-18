@@ -80,20 +80,31 @@ $clients = PersonData::getClients();
 				FROM disease d
 				INNER JOIN operation o ON d.id = o.idDisease
 				INNER JOIN sell s ON o.sell_id = s.id
-				INNER JOIN product p ON p.id = o.product_id where created_at> " .$date1  . " and created_at < " .$date1  . "";
+				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "'";
 							$countSells=mysqli_query($link,"SELECT count(*)
 				FROM disease d
 				INNER JOIN operation o ON d.id = o.idDisease
 				INNER JOIN sell s ON o.sell_id = s.id
 				INNER JOIN product p ON p.id = o.product_id ");
-				echo '<script language="javascript">alert("'.$query.'");</script>';
+				//echo '<script language="javascript">alert("'.$query.'");</script>';
             $find= mysqli_query($link,$query);
 			}
 			else{
+
+				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at
+				FROM disease d
+				INNER JOIN operation o ON d.id = o.idDisease
+				INNER JOIN sell s ON o.sell_id = s.id
+				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "'";
+							$countSells=mysqli_query($link,"SELECT count(*)
+				FROM disease d
+				INNER JOIN operation o ON d.id = o.idDisease
+				INNER JOIN sell s ON o.sell_id = s.id
+				INNER JOIN product p ON p.id = o.product_id ");
 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 			} 
 
-			echo $query;
+			
 			 ?>
 
 			
@@ -103,16 +114,12 @@ $clients = PersonData::getClients();
              
                  <?php
              
-            echo $query;
+           
              
              ?>
              <thead>
                      <th></th>
-                     <th> <?php
-             
-            echo $query;
-             
-             ?></th>
+                     <th>Producto</th>
                      <th>Factura</th>
                      <th>Fecha</th>
                      <th>Enfermedad</th>
@@ -146,8 +153,8 @@ $clients = PersonData::getClients();
              ?>			
              
                      </td>
-                     <!-- <td><?php echo $row['created_at']; ?></td> -->
-					 <td><?php echo $query; ?></td>
+                     <td><?php echo $row['created_at']; ?></td>
+			
                      <td><?php echo $row['name']; ?></td>
              
              
@@ -162,7 +169,7 @@ $clients = PersonData::getClients();
 <div class="jumbotron">
 <?php
              
-            echo $query;
+           
              
              ?>
 	<h2>No hay operaciones</h2>
