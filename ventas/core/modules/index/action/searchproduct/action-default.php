@@ -46,7 +46,7 @@ $diseases = DiseaseData::getAll();
 		<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
 
 <div class="input-group">
-		<input type="" class="form-control" required name="q" placeholder="Cantidad ...">
+		<input type="" class="form-control" required name="q" placeholder="Cantidad -...">
 
 
 
@@ -69,7 +69,7 @@ $diseases = DiseaseData::getAll();
 
 	<?php
 }else{
-	echo "<br><p class='alert alert-danger'>No se encontro el producto</p>";
+	echo "<br><p class='alert alert-danger'>No se encontro el producto en esta busqueda</p>";
 }
 ?>
 <hr><br>

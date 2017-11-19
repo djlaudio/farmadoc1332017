@@ -61,6 +61,21 @@ $clients = PersonData::getClients();
 	</div>
 	</div>
 <br><!--- -->
+
+<script>
+
+$(document).ready(function(){
+    $("#client_id").on('change', function(){
+
+
+		alert("#client_id").val());
+/* Lo siguiente es el valor del total menos el descuento */ 
+
+    });
+});
+</script>
+
+
 <div class="row">
 	
 	<div class="col-md-12">
@@ -91,20 +106,20 @@ $clients = PersonData::getClients();
 			}
 			else{
 
-				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname
-FROM disease d
-INNER JOIN operation o ON d.id = o.idDisease
-INNER JOIN sell s ON o.sell_id = s.id
-INNER JOIN product p ON p.id = o.product_id
-INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
-							$countSells=mysqli_query($link,"SELECT count(*)
-				FROM disease d
-				INNER JOIN operation o ON d.id = o.idDisease
-				INNER JOIN sell s ON o.sell_id = s.id
-				INNER JOIN product p ON p.id = o.product_id ");
-			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+ 				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname
+ FROM disease d
+ INNER JOIN operation o ON d.id = o.idDisease
+ INNER JOIN sell s ON o.sell_id = s.id
+ INNER JOIN product p ON p.id = o.product_id
+ INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
+// 							$countSells=mysqli_query($link,"SELECT count(*)
+// 				FROM disease d
+// 				INNER JOIN operation o ON d.id = o.idDisease
+// 				INNER JOIN sell s ON o.sell_id = s.id
+// 				INNER JOIN product p ON p.id = o.product_id ");
+// 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 			} 
-			echo '<script language="javascript">alert("'.$query.'");</script>';
+			echo '<script language="javascript">alert("'.$client_id.'");</script>';
 			
 			 ?>
 
@@ -180,6 +195,8 @@ INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "'
              ?>
 	<h2>No hay operaciones</h2>
 	<p>El rango de fechas seleccionado no proporciono ningun resultado de operaciones.</p>
+
+	<p><?php	echo $date2; ?></p>
 </div>
 
 			 <?php endif; ?>
