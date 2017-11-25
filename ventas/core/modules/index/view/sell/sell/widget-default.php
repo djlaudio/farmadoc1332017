@@ -229,18 +229,13 @@ $product = ProductData::getById($p["product_id"]);
 $clients = PersonData::getClients();
     ?>
     <select name="client_id" class="form-control"  onchange="loadDiseases(this.value);">
-    <option value="0"><Estimado cliente></option>
+   
     <?php foreach($clients as $client):?>
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
     <?php endforeach;?>
     	</select>
     </div>
   </div>
-
-  <div class="form-group" id="divClientCustom">
-  <div class="form-group" id="divDisease">
-<!-- Esto es para cargar los datos de la respuesta de jscript -->
-                </div>
 
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
   <div class="form-group">
@@ -277,7 +272,9 @@ $products = SellData::getSells();
     </div>
   </div>
 
- 
+ <div id="divDisease">
+<!-- Esto es para cargar los datos de la respuesta de jscript -->
+                </div>
 
 <!-- Acá termina sistema de farmacias -->
 
@@ -466,11 +463,11 @@ alert("jscript is running");
      },
 
  beforeSend: function () {
-       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
+       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
        alert ("Procesando, espere por favor...");
 },
      success: function (response) {
-       document.getElementById("divClientCustom").innerHTML=response;
+       document.getElementById("divDisease").innerHTML=response;
        alert (response);
 
      },

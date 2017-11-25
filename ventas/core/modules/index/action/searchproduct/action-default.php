@@ -1,4 +1,3 @@
-
 <?php if(isset($_GET["product"]) && $_GET["product"]!=""):?>
 	<?php
 $products = ProductData::getLike($_GET["product"]);
@@ -10,7 +9,7 @@ if(count($products)>0){
 		<th>Codigo</th>
 		<th>Nombre</th>
 		<th>Enfermedad</th>
-		<th>Unidad</th>
+		
 		<th>Precio unitario</th>
 		<th>En inventario</th>
 		<th>Cantidad</th>
@@ -37,8 +36,8 @@ $diseases = DiseaseData::getAll();
     <?php endforeach;?>
       </select>
 	  </td>
-		<td><?php echo $product->unit; ?></td>
-		<td><b>$<?php echo $product->price_out; ?></b></td>
+		
+		<td><b>₡<?php echo $product->price_out; ?></b></td>
 		<td>
 			<?php echo $q; ?>
 		</td>

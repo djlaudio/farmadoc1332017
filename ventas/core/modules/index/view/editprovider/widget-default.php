@@ -50,7 +50,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
     <input type="hidden" name="user_id" value="<?php echo $user->id;?>">
-      <button type="submit" class="btn btn-primary">Actualizar Proveedor</button>
+      <button type="submit" class="btn btn-primary">Actualizar Cliente</button>
     </div>
   </div>
 </form>

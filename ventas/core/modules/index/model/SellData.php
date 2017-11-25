@@ -40,8 +40,8 @@ echo $max_id;
 
 
 
-    $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra, idDisease ";
-    $sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0,$this->iv ,$max_id+1, $this->esCompra, $this->idDisease)";
+    $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra, idDisease, custom_client_name ";
+    $sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0,$this->iv ,$max_id+1, $this->esCompra, $this->idDisease, $this->customNameClient)";
 
   echo "Valor de iv + 1: " . $max_id + 1;
 

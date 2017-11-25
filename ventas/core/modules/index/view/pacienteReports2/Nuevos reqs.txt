@@ -1,0 +1,10 @@
+Enfermedades: Agregar a la hora de la linea
+Agregar busqueda por cedula
+Agregar facilmente clientes
+
+Agregar enfermedad en vista de ventas
+En ver factura (resumen de venta) ver el nombre personalizado, asi como en el
+reporte de venta
+
+en expediente paciente ver la enfermedad cuando es custom
+

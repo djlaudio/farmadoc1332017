@@ -125,6 +125,7 @@ $_SESSION["errors"] = $errors;
 			$sell->discount = $_POST["discount"];
 			$sell->esCompra = 0;
             $sell->idDisease= $_POST["disease_id"];
+            	
 
 
 
@@ -185,7 +186,7 @@ $credito->idSell= $s[1];
 			 $op->operation_type_id=OperationTypeData::getByName("salida")->id;
 			 $op->sell_id=$s[1];
 			 $op->q= $c["q"];
-
+			$op->disease_id= $c["disease_id"];
 			if(isset($_POST["is_oficial"])){
 				$op->is_oficial = 1;
 			}

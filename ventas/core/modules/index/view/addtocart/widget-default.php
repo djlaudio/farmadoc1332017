@@ -1,11 +1,24 @@
 <?php
 
+
+
+foreach ($_POST as $k => $v) {
+	echo $k . "<br>";
+  }
+  
 if(!isset($_SESSION["cart"])){
 
 
-	$product = array("product_id"=>$_POST["product_id"],"q"=>$_POST["q"]);
+	
+
+
+
+
+	$product = array("product_id"=>$_POST["product_id"],"q"=>$_POST["q"], "disease_id"=>$_POST["disease_id"]);
 	$_SESSION["cart"] = array($product);
 
+
+	
 
 	$cart = $_SESSION["cart"];
 
@@ -99,7 +112,7 @@ if($found==true){
 
 if($found==false){
     $nc = count($cart);
-	$product = array("product_id"=>$_POST["product_id"],"q"=>$_POST["q"]);
+	$product = array("product_id"=>$_POST["product_id"],"q"=>$_POST["q"],"disease_id"=>$_POST["disease_id"]);
 	$cart[$nc] = $product;
 //	print_r($cart);
 	$_SESSION["cart"] = $cart;

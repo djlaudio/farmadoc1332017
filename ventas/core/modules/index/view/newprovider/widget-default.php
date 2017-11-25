@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-	<h1>Nuevo Proveedor</h1>
+	<h1>Nuevo Cliente</h1>
 	<br>
 		<form class="form-horizontal" method="post" id="addproduct" action="index.php?view=addprovider" role="form">
 
@@ -49,7 +49,7 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <button type="submit" class="btn btn-primary">Agregar Proveedor</button>
+      <button type="submit" class="btn btn-primary">Agregar Cliente</button>
     </div>
   </div>
 </form>

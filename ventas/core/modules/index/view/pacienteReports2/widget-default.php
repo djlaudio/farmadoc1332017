@@ -106,20 +106,23 @@ $(document).ready(function(){
 			}
 			else{
 
- 				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname
- FROM disease d
- INNER JOIN operation o ON d.id = o.idDisease
- INNER JOIN sell s ON o.sell_id = s.id
- INNER JOIN product p ON p.id = o.product_id
- INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
+
+			
+ 				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname, pe.created_at nacimiento
+  FROM disease d
+  INNER JOIN operation o ON d.id = o.idDisease
+  INNER JOIN sell s ON o.sell_id = s.id
+  INNER JOIN product p ON p.id = o.product_id
+  INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
 // 							$countSells=mysqli_query($link,"SELECT count(*)
 // 				FROM disease d
 // 				INNER JOIN operation o ON d.id = o.idDisease
 // 				INNER JOIN sell s ON o.sell_id = s.id
 // 				INNER JOIN product p ON p.id = o.product_id ");
 // 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+$find= mysqli_query($link,$query);
 			} 
-			echo '<script language="javascript">alert("'.$client_id.'");</script>';
+			
 			
 			 ?>
 
@@ -135,12 +138,12 @@ $(document).ready(function(){
              ?>
              <thead>
                      <th></th>
-                     <th> <?php
+                     <th> 
              
-		   echo $_GET["client_id"];
+		   Producto
 		   
              
-             ?></th>
+            </th>
                      <th>Factura</th>
                      <th>Fecha</th>
                      <th>Enfermedad</th>
