@@ -147,7 +147,6 @@ echo "Max id es";
 echo $max_id;
 
     $sql = "insert into ".self::$tablename." (total,discount,person_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, idDisease, custom_client_name) ";
-    $sql .= "value ($this->total,$this->discount,$this->person_id,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv, $max_id+1, $this->idDisease,$this->custom_client_name)";
 
 
       echo "Valor de iv: " . $this->iv;
