@@ -1,0 +1,9 @@
+Change github name.
+Make free repo on TFF and private?
+Tests? How to do tests in php
+
+
+
+
+Need segudoc aval:
+Pay per github
