@@ -189,6 +189,9 @@ $credito->idSell= $s[1];
 			 }
 
 
+
+
+echo ('starting cart');
 		foreach($cart as  $c){
 
 
@@ -201,6 +204,11 @@ $credito->idSell= $s[1];
 			if(isset($_POST["is_oficial"])){
 				$op->is_oficial = 1;
 			}
+
+
+			echo ('Adding from cart' +  $op->product_id);
+
+
 
 			$add = $op->add();
 
