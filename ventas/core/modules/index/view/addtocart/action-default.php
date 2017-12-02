@@ -39,6 +39,8 @@ foreach ($_POST as $key => $entry)
 		<?php
 $diseases = DiseaseData::getAll();
     ?>
+
+   
            <select id="disease_id" name="disease_id"  class="form-control">
    
                  <?php foreach($diseases as $disease):?>
@@ -51,7 +53,7 @@ $diseases = DiseaseData::getAll();
 		<td>
 			<?php echo $q; ?>
 		</td>
-		<td style="width:250px;"><form method="post" action="index.php?view=addtocart">
+		<td style="width:250px;">
 		<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
 		<input type="hidden" name="disease_id" value="<?php echo disease_id; ?>">
 <div class="input-group">

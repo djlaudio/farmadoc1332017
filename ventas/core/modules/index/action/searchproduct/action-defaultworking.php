@@ -8,11 +8,12 @@ if(count($products)>0){
 	<thead>
 		<th>Codigo</th>
 		<th>Nombre</th>
-		<th>Enfermedad</th>
+		
 		
 		<th>Precio unitario</th>
 		<th>En inventario</th>
-		<th>Cantidad</th>
+		<th>Enfermedad</th>
+		
 	</thead>
 	<?php
 $products_in_cero=0;
@@ -35,35 +36,45 @@ foreach ($_POST as $key => $entry)
 	<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
 		<td style="width:80px;"><?php echo $product->id; ?></td>
 		<td><?php echo $product->name; ?></td>
-		<td>
+		
 		<?php
 $diseases = DiseaseData::getAll();
     ?>
-           <select id="disease_id" name="disease_id"  class="form-control">
-   
-                 <?php foreach($diseases as $disease):?>
-                     <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
-                 <?php endforeach;?>
-            </select>
-	    </td>
+
+
 		
 		<td><b>₡<?php echo $product->price_out; ?></b></td>
 		<td>
 			<?php echo $q; ?>
 		</td>
-		<td style="width:250px;"><form method="post" action="index.php?view=addtocart">
-		<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
-		<input type="hidden" name="disease_id" value="<?php echo disease_id; ?>">
-<div class="input-group">
-		<input type="" class="form-control" required name="q" placeholder="Cantidad -...">
+		
+		
+
+           
+		<td style="width:250px;">
+
+			 <form method="post" action="index.php?view=addtocart">
+
+			 				<select id="disease_id" name="disease_id"  class="form-control">
+   
+                 <?php foreach($diseases as $disease):?>
+                     <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
+                 <?php endforeach;?>
+            </select>
+	   
+
+							<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
+			
+							<div class="input-group">
+							<input type="" class="form-control" required name="q" placeholder="Cantidad -...">
 
 
 
 		
-      <span class="input-group-btn">
-		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Agregar</button>
-      </span>
-    </div>
+    						  <span class="input-group-btn">
+										<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i> Agregar</button>
+   						   </span>
+   		 </div>
 
 
 		</form></td>

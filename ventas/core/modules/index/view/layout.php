@@ -69,7 +69,8 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=inventary"><i class="fa fa-area-chart"></i> Inventario</a></li>
           <li><a href="index.php?view=re"><i class="fa fa-refresh"></i> Reabastecer</a></li>
           <li><a href="index.php?view=res"><i class="fa fa-th-list"></i> Reabastecimientos</a></li>
-          <li><a href="index.php?view=calc"><i class="fa fa-th-list"></i> Calculador</a></li>
+          <li><a href="index.php?view=calculator"><i class="fa fa-th-list"></i> Bonificacion y descuento</a></li>
+          <li><a href="index.php?view=calculator2"><i class="fa fa-th-list"></i> Impuestos</a></li>
               </ul>
             </li>
 

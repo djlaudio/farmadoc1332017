@@ -1,6 +1,7 @@
 <?php
 include ('connect_db.php');
 $clients = PersonData::getClients();
+$the_Client= new PersonData();
 ?>
 <section class="content">
 <div class="row">
@@ -106,7 +107,7 @@ $(document).ready(function(){
 			}
 			else{
 
-
+$the_Client= PersonData::getById($client_id);
 			
  				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname, pe.created_at nacimiento
   FROM disease d
@@ -128,19 +129,20 @@ $find= mysqli_query($link,$query);
 
 			
                  <table class="table table-bordered table-hover	">
-                 
+
+				 
+                Paciente: 
+					 <?php echo $the_Client->name . " " . $the_Client->lastname ; ?>
+					 <br>
+					 Fecha de nacimiento: 
+					 <?php echo $the_Client->created_at; ?>
+					 <br>
              
-             
-                 <?php
-             
-           
-             
-             ?>
+                
              <thead>
                      <th></th>
                      <th> 
-             
-		   Producto
+            
 		   
              
             </th>

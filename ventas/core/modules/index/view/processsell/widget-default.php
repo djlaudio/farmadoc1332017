@@ -150,6 +150,13 @@ $credito->esCompra = 0;
 			 	$sell->person_id=$_POST["client_id"];
  				$s = $sell->add_with_client();
 
+
+				 echo ('Si hay cliente seleccionado');
+				 
+								 echo ('Holaaaaaa');
+				 
+								 echo ($s);
+
  			$credito  ->idClienteCredito =$_POST["client_id"];
 
 
@@ -157,8 +164,12 @@ $credito->esCompra = 0;
 			 }else{
  				$s = $sell->add();
 
-$credito  ->idClienteCredito =0;
+				$credito  ->idClienteCredito =0;
+				echo ('No hay cliente seleccionado');
 
+				echo ('Holaaaaaa');
+
+				echo ($s);
 
 			 }
 
