@@ -126,7 +126,7 @@ $_SESSION["errors"] = $errors;
 			$sell->esCompra = 0;
             $sell->idDisease= $_POST["disease_id"];
             	
-
+            $sell->custom_client_name= $_POST["nombreClienteCustom"];
 
 
 
@@ -155,7 +155,7 @@ $credito->esCompra = 0;
 				 
 								 echo ('Holaaaaaa');
 				 
-								 echo ($s);
+							
 
  			$credito  ->idClienteCredito =$_POST["client_id"];
 
