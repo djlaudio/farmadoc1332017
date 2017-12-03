@@ -8,15 +8,12 @@ class OperationData {
 		$this->q = "";
 		$this->cut_id = "";
 		$this->operation_type_id = "";
-		$this->disease_id = "";
 		$this->created_at = "NOW()";
 	}
 
 	public function add(){
-
-		Echo ("Adding operation with " + $this->product_id );
-		$sql = "insert into ".self::$tablename." (product_id,q,operation_type_id,sell_id,disease_id,created_at) ";
-		$sql .= "value (\"$this->product_id\",\"$this->q\",$this->operation_type_id,$this->sell_id,$this->disease_id,$this->created_at)";
+		$sql = "insert into ".self::$tablename." (product_id,q,operation_type_id,sell_id,created_at) ";
+		$sql .= "value (\"$this->product_id\",\"$this->q\",$this->operation_type_id,$this->sell_id,$this->created_at)";
 		return Executor::doit($sql);
 	}
 

@@ -40,11 +40,9 @@ echo $max_id;
 
 
 
-    $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra, idDisease";
+    $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra, idDisease ";
     $sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0,$this->iv ,$max_id+1, $this->esCompra, $this->idDisease)";
 
-
-    echo $sql;
   echo "Valor de iv + 1: " . $max_id + 1;
 
     return Executor::doit($sql);
@@ -146,12 +144,12 @@ $max_id=$row['max_id'];
 echo "Max id es";
 echo $max_id;
 
-    $sql = "insert into ".self::$tablename." (total,discount,person_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, idDisease, custom_client_name) ";
-    $sql .= "value ($this->total,$this->discount,$this->person_id,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv, $max_id+1, $this->idDisease,'$this->custom_client_name')";
+    $sql = "insert into ".self::$tablename." (total,discount,person_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, idDisease) ";
+    $sql .= "value ($this->total,$this->discount,$this->person_id,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv, $max_id+1, $this->idDisease)";
 
 
       echo "Valor de iv: " . $this->iv;
-      echo $sql; 
+
 
     return Executor::doit($sql);
   }
