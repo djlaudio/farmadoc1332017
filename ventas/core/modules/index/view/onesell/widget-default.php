@@ -72,8 +72,7 @@ $client = $sell->getPerson();
 ?>
 <tr>
 	<td style="width:150px;">Cliente</td>
-	
-	<td><?php echo $sell->custom_client_name;?></td>
+	<td><?php echo $client->name." ".$client->lastname;?></td>
 </tr>
 
 <?php endif; ?>
