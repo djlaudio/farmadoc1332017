@@ -15,6 +15,8 @@
 		</form>
 	</div>
 <div id="show_search_results"></div>
+
+
 <script>
 //jQuery.noConflict();
 
@@ -33,7 +35,6 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#product_code").keydown(function(e){
         if(e.which==17 || e.which==74){
-
             e.preventDefault();
         }else{
             console.log(e.which);
@@ -41,132 +42,25 @@ $(document).ready(function(){
     })
 });
 
-// $(document).ready(function(){
-//     $("#client_id").on('change',function(){
-        
-       
-// // Llamar desde aqui a funcion JAVAScript
-// // loadClientData($("#client_id").val());
-//         }
-//     })
-// });
-
-$(document).ready(function(){
-    $("#disease_id").on('change', function(){
-
-/* Lo siguiente es el valor del total menos el descuento */
-     
-        
-        
-        loadClientDiseasesSells($("#client_id").val(), $("#disease_id").val());
-
-        
-
-       
-    
-
-    });
-});
-
-
 $(document).ready(function(){
     $("#iv").on('change', function(){
-
-/* Lo siguiente es el valor del total menos el descuento */
-      $total_iv=$("#total").val()- $("#discount").val();
         
-        if (this.value=="0")
-
+        if this.value==0
         	{
-
-             
-        		$("#money").val($total_iv) ;
-          
+        		$("#money").val() = $total
         		}
         		else
-
-
         			{
-
-                $total_iv=$total_iv * 1.13;
-
-        			$("#money").val($total_iv);
-              
-          }
-
-
+        			$("#money").val() = $total+ ($total*.13)
+}
        
-    
+ alert( this.value );
 
-    });
+    })
 });
-
-
-$(document).ready(function(){
-    $("#termino_id").on('change', function(){
-
-
-
-      $total_ter=$("#total").val();
-    
-        if (this.value=="137")
-          {
-
-            $discount_ter=$total_ter/10;
-           
-            $("#discount").val($discount_ter);
-            $("#money").val($total_ter-$discount_ter);
-
-           
-            }
-            else
-              {
-              $("#discount").val(0);
-              $("#money").val($total_ter);
-
-          }
-
-
-       
-       
-$total_iv=$("#total").val()- $("#discount").val();
-        
-        if ($("#iv").val()=="0")
-
-          {
-
-             
-            $("#money").val($total_iv) ;
-          
-            }
-            else
-
-
-              {
-
-                $total_iv=$total_iv * 1.13;
-
-              $("#money").val($total_iv);
-              
-          }
-
-
-
-
-
-
-
-
-    });
-});
-
 
 
 </script>
-
-<?php 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT); ?>
 
 <?php if(isset($_SESSION["errors"])):?>
 <h2>Errores</h2>
@@ -204,7 +98,6 @@ $total = 0;
 	<th style="width:30px;">Cantidad</th>
 	<th style="width:30px;">Unidad</th>
 	<th>Producto</th>
-	<th>Enfermedad</th>
 	<th style="width:30px;">Precio Unitario</th>
 	<th style="width:30px;">Precio Total</th>
 	<th ></th>
@@ -217,7 +110,6 @@ $product = ProductData::getById($p["product_id"]);
 	<td ><?php echo $p["q"]; ?></td>
 	<td><?php echo $product->unit; ?></td>
 	<td><?php echo $product->name; ?></td>
-	<td>Nombre enfermedad</td>
 	<td><b>₡ <?php echo number_format($product->price_out); ?></b></td>
 	<td><b>₡ <?php  $pt = $product->price_out*$p["q"]; $total +=$pt; echo number_format($pt); ?></b></td>
 	<td style="width:30px;"><a href="index.php?view=clearcart&product_id=<?php echo $product->id; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a></td>
@@ -233,45 +125,14 @@ $product = ProductData::getById($p["product_id"]);
     <?php
 $clients = PersonData::getClients();
     ?>
-    <select name="client_id" id="client_id" class="form-control"  onchange="loadInfoCliente(this.value);">
-    <option value="0"><Estimado cliente></option>
+    <select name="client_id" class="form-control">
+    <option value="">-- NINGUNO --</option>
     <?php foreach($clients as $client):?>
-
-    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname." - ".$client->cedula;?></option>
+    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
     <?php endforeach;?>
     	</select>
     </div>
   </div>
-  <div class="form-group" id="divClientCustom">  </DIV>
-  <div class="form-group" id="divDisease">
-   <!-- Lo siguiente forma parte solo del sistema de farmacias -->
-  <div class="form-group">
-    <label for="padecimiento" class="col-lg-2 control-label">Padecimiento</label>
-    <div class="col-lg-10">
-
-
- <?php
-$diseases = DiseaseData::getAll();
-    ?>
-    <select name="disease_id" id="disease_id" class="form-control">
-   
-    <?php foreach($diseases as $disease):?>
-      <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
-    <?php endforeach;?>
-      </select>
-      
-    </div>
-  </div>
-
-
- 
-
- 
-<!-- Esto es para cargar los datos de la respuesta de jscript -->
-                </div>
-
-<!-- Acá termina sistema de farmacias -->
-
 
   <div class="form-group">
     <label for="iv" class="col-lg-2 control-label">Impuesto de venta</label>
@@ -347,8 +208,7 @@ $diseases = DiseaseData::getAll();
       <input type="text" name="money" value="<?php echo $total; ?>" required class="form-control" id="money" placeholder="Efectivo">
     </div>
   </div>
-      <input type="hidden" name="total" value="<?php echo $total; ?>" class="form-control" 
-      id="total" placeholder="Total">
+      <input type="hidden" name="total" value="<?php echo $total; ?>" class="form-control" placeholder="Total">
 
   <div class="row">
 <div class="col-md-6 col-md-offset-6">
@@ -391,7 +251,7 @@ $diseases = DiseaseData::getAll();
 	$("#processsell").submit(function(e){
 		discount = $("#discount").val();
 
-/*if ($("#iv").val()===0)
+if ($("#iv").val()==0)
 {
 valorIV=0;
 }else{
@@ -409,141 +269,8 @@ granTotal=($total-discount+valorIV);
 			if(go){}
 				else{e.preventDefault();}
 		}
-	});   */
-
+	});
 </script>
-
-<script>
-
-
-function loadInfoCliente(idClient)
-{
-
-
-   $.ajax({
-     type: 'post',
-     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/functionInfoCliente.php',
-     data: {
-       idPersona:idClient,
-     },
-
- beforeSend: function () {
-       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
-      
-},
-     success: function (response) {
-
-       document.getElementById("divClientCustom").innerHTML=response;
-      
-
-     },
-
-     error: function (jqXHR, status, err) {
-    alert("Local error callback.");
-  },
-   });
-
-}
-
-function loadDiseasesBackup(idClient)
-{
-
-
-   $.ajax({
-     type: 'post',
-     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/loadDiseases.php',
-     data: {
-       idClient:idClient,
-     },
-
- beforeSend: function () {
-       document.getElementById("divDisease").innerHTML=("Procesando, espere por favor...");
-      
-},
-     success: function (response) {
-
-       document.getElementById("divDisease").innerHTML=response;
-      
-
-     },
-
-     error: function (jqXHR, status, err) {
-    alert("Local error callback.");
-  },
-   });
-
-}
-
-</script>
-
-
-
-<script>
-function loadClientData(idClient)
-{
-
-
-alert("jscript is running");
-   $.ajax({
-     type: 'post',
-     url: 'functionInfoCliente.php',
-     data: {
-       idPersona:idClient,
-     },
-
- beforeSend: function () {
-       document.getElementById("divClientCustom").innerHTML=("Procesando, espere por favor...");
-       alert ("Procesando, espere por favor...");
-},
-     success: function (response) {
-       document.getElementById("divClientCustom").innerHTML=response;
-       alert (response);
-
-     },
-
-     error: function (jqXHR, status, err) {
-    alert("Local error callback.");
-  },
-   });
-
-}
-</script>
-
-
-<script>
-  function loadClientDiseasesSells(idClient, idDisease)
-{
-
-   $.ajax({
-     type: 'post',
-     url: 'http://www.segudocpro.com/farmadoc/ventas/core/modules/index/view/sell/queryClientDisease.php',
-     data: {
-       idClient:idClient,
-       idDisease:idDisease
-     },
-
-     success: function (response) {
-       
-      
-       document.getElementById("divDisease").innerHTML=response;
-
-
-     }
-   });
-}
-</script>
-
-<script>
-
-function javaTest()
-{
-  alert("This is running");
-}
-
-</script>
-
-
-
 </div>
 </div>
 
