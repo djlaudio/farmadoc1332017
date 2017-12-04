@@ -155,7 +155,7 @@ $credito->esCompra = 0;
 				 
 								 echo ('Holaaaaaa');
 				 
-								 echo ($s);
+							
 
  			$credito  ->idClienteCredito =$_POST["client_id"];
 

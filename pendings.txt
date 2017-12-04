@@ -7,3 +7,6 @@ Tests? How to do tests in php
 
 Need segudoc aval:
 Pay per github
+
+
+Abono data: Removed in removed abonodata... temporary
