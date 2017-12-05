@@ -155,7 +155,7 @@ $credito->esCompra = 0;
 				 
 								 echo ('Holaaaaaa');
 				 
-							
+								 echo ($s);
 
  			$credito  ->idClienteCredito =$_POST["client_id"];
 
@@ -178,14 +178,14 @@ $credito->idSell= $s[1];
 
 
 			 if($sell->termino_id == 135){
-			 	// $abono = new AbonoData();
-				// $abono->cantidadAbono = $sell->total;
-				// $abono->tipo_pago = $_POST["tipo_pago"];
+			 	$abono = new AbonoData();
+				$abono->cantidadAbono = $sell->total;
+				$abono->tipo_pago = $_POST["tipo_pago"];
 
 
-				// $abono->idCreditoAbono = $credito->getLastId();
+				$abono->idCreditoAbono = $credito->getLastId();
 
-				// $abono->add();
+				$abono->add();
 			 }
 
 
