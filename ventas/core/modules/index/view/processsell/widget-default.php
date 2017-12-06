@@ -126,7 +126,7 @@ $_SESSION["errors"] = $errors;
 			$sell->esCompra = 0;
             $sell->idDisease= $_POST["disease_id"];
             	
-
+            $sell->custom_client_name= $_POST["nombreClienteCustom"];
 
 
 
@@ -155,7 +155,7 @@ $credito->esCompra = 0;
 				 
 								 echo ('Holaaaaaa');
 				 
-								 echo ($s);
+							
 
  			$credito  ->idClienteCredito =$_POST["client_id"];
 
@@ -197,7 +197,7 @@ $credito->idSell= $s[1];
 			 $op->operation_type_id=OperationTypeData::getByName("salida")->id;
 			 $op->sell_id=$s[1];
 			 $op->q= $c["q"];
-			$op->disease_id= $c["disease_id"];
+			//$op->id_disease= $c["disease_id"];
 			if(isset($_POST["is_oficial"])){
 				$op->is_oficial = 1;
 			}

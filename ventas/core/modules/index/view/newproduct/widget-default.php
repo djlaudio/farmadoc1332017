@@ -48,7 +48,13 @@ $categories = CategoryData::getAll();
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Precio de Salida*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio venta sin IV*</label>
+    <div class="col-md-6">
+      <input type="text" name="price_out_wo_iv" required class="form-control" id="price_out_wo_iv" placeholder="Precio de entrada">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio de venta recomendado (Con IV)*</label>
     <div class="col-md-6">
       <input type="text" name="price_out" required class="form-control" id="price_out" placeholder="Precio de salida">
     </div>
@@ -80,8 +86,6 @@ $categories = CategoryData::getAll();
     </div>
   </div>
 
-  
-
   <div class="form-group">
     <label for="inputPromocionado" class="col-lg-2 control-label">Promocionado</label>
     <div class="col-md-6">
@@ -92,6 +96,10 @@ $categories = CategoryData::getAll();
       </select>   
        </div>
   </div>
+
+  <div data-role="content">
+        <div id="button" data-role="button">Calcular</div>
+      </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
@@ -104,6 +112,18 @@ $categories = CategoryData::getAll();
 </div>
 
 <script>
+
+   $("#button").click( function()
+           {
+             costWoIV();
+           }
+        );
+
+
+   $("#price_out").change(function(){
+    costWoIV();
+});
+
   $(document).ready(function(){
     $("#product_code").keydown(function(e){
         if(e.which==17 || e.which==74 ){
@@ -113,5 +133,21 @@ $categories = CategoryData::getAll();
         }
     })
 });
+
+
+  function costWoIV() {
+  
+    c=  $('#price_out_wo_iv').val();
+    d=  $('#price_out').val();
+    priceCost = (parseInt(d)    /  1.13 ) ;
+    //Want to know price per item. So if you have 10 and have 5 free, just divide cost price*qproducts and divide ito total 
+    win=priceCost- parseInt(c);
+
+
+    //
+    alert('El precio de venta sin IV es ' + priceCost + ', y la gananacia es de ' + win + ' colones');
+    $('#price_out_wo_iv').val(priceCost);
+  };
+
 
 </script>
