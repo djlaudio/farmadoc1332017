@@ -145,7 +145,7 @@ $categories = CategoryData::getAll();
 
 
     //
-    alert('El precio de venta sin IV es ' + priceCost + ', y la gananacia es de ' + win + ' colones');
+    
     $('#price_out_wo_iv').val(priceCost);
   };
 

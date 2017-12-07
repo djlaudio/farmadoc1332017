@@ -18,6 +18,8 @@ $this->promo = "0";
 	public function add(){
 		$sql = "insert into ".self::$tablename." (barcode,name,description,price_in,price_out,user_id,presentation,unit,category_id,inventary_min,promo,created_at) ";
 		$sql .= "value (\"$this->barcode\",\"$this->name\",\"$this->description\",\"$this->price_in\",\"$this->price_out\",$this->user_id,\"$this->presentation\",\"$this->unit\",$this->category_id,$this->inventary_min, $this->promo,NOW())";
+		echo $sql;
+		
 		return Executor::doit($sql);
 	}
 	public function add_with_image(){
