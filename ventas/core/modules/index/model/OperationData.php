@@ -19,6 +19,13 @@ class OperationData {
 		return Executor::doit($sql);
 	}
 
+	public function addwoididisease(){
+		$sql = "insert into ".self::$tablename." (product_id,q,operation_type_id,sell_id,created_at,id_disease) ";
+		$sql .= "value (\"$this->product_id\",\"$this->q\",$this->operation_type_id,$this->sell_id,$this->created_at,0)";
+		echo $sql;
+		return Executor::doit($sql);
+	}
+
 	public static function delById($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
 		Executor::doit($sql);

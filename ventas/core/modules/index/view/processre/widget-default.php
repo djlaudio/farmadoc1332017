@@ -82,7 +82,7 @@ $credito->idSell= $s[1];
 				$op->is_oficial = 1;
 			}
 
-			$add = $op->add();			 		
+			$add = $op->addwoid_disease();			 		
 
 		}
 			unset($_SESSION["reabastecer"]);
