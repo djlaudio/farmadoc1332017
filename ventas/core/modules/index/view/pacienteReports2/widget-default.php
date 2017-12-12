@@ -190,11 +190,11 @@ $(document).ready(function(){
 
 				FROM disease d
 
-				INNER JOIN operation o ON d.id = o.idDisease
+				INNER JOIN operation o ON d.id = o.id_disease
 
 				INNER JOIN sell s ON o.sell_id = s.id
 
-				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "'";
+				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "'";
 
 							$countSells=mysqli_query($link,"SELECT count(*)
 
@@ -230,7 +230,7 @@ $the_Client= PersonData::getById($client_id);
 
   INNER JOIN product p ON p.id = o.product_id
 
-  INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
+  INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "' and pe.id= " . $client_id . "";
 
 // 							$countSells=mysqli_query($link,"SELECT count(*)
 
