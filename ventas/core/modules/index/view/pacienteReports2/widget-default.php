@@ -26,7 +26,7 @@ $clients = PersonData::getClients();
 
 
 
-<select name="client_id" class="form-control">
+<select name="client_id" id="client_id" class="form-control">
 
 	<option value="">--  TODOS --</option>
 
@@ -124,6 +124,36 @@ $clients = PersonData::getClients();
 
 <br><!--- -->
 
+
+
+<script>
+
+
+
+$(document).ready(function(){
+
+    $("#client_id").on('change', function(){
+
+
+
+
+
+		alert("#client_id").val());
+
+/* Lo siguiente es el valor del total menos el descuento */ 
+
+
+
+    });
+
+});
+
+</script>
+
+
+
+
+
 <div class="row">
 
 	
@@ -144,7 +174,7 @@ $clients = PersonData::getClients();
 
 				$date2= $_GET["ed"];
 
-           
+				$client_id=  $_GET["client_id"];
 
           
 
@@ -162,7 +192,7 @@ $clients = PersonData::getClients();
 
 				INNER JOIN sell s ON o.sell_id = s.id
 
-				INNER JOIN product p ON p.id = o.product_id where created_at> " .$date1  . " and created_at < " .$date1  . "";
+				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "'";
 
 							$countSells=mysqli_query($link,"SELECT count(*)
 
@@ -174,7 +204,7 @@ $clients = PersonData::getClients();
 
 				INNER JOIN product p ON p.id = o.product_id ");
 
-				echo '<script language="javascript">alert("'.$query.'");</script>';
+				
 
             $find= mysqli_query($link,$query);
 
@@ -182,13 +212,37 @@ $clients = PersonData::getClients();
 
 			else{
 
-			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+
+
+ 				$query= "SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at, pe.id, pe.name, pe.lastname
+
+ FROM disease d
+
+ INNER JOIN operation o ON d.id = o.idDisease
+
+ INNER JOIN sell s ON o.sell_id = s.id
+
+ INNER JOIN product p ON p.id = o.product_id
+
+ INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at < '" .$date2  . "' and pe.id= " . $client_id . "";
+
+// 							$countSells=mysqli_query($link,"SELECT count(*)
+
+// 				FROM disease d
+
+// 				INNER JOIN operation o ON d.id = o.idDisease
+
+// 				INNER JOIN sell s ON o.sell_id = s.id
+
+// 				INNER JOIN product p ON p.id = o.product_id ");
+
+// 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 
 			} 
 
+			echo '<script language="javascript">alert("'.$client_id.'");</script>';
 
-
-			echo $query;
+			
 
 			 ?>
 
@@ -208,7 +262,7 @@ $clients = PersonData::getClients();
 
              
 
-            echo $query;
+           
 
              
 
@@ -222,7 +276,9 @@ $clients = PersonData::getClients();
 
              
 
-            echo $query;
+		   echo $_GET["client_id"];
+
+		   
 
              
 
@@ -294,9 +350,9 @@ $clients = PersonData::getClients();
 
                      </td>
 
-                     <!-- <td><?php echo $row['created_at']; ?></td> -->
+                     <td><?php echo $row['created_at']; ?></td>
 
-					 <td><?php echo $query; ?></td>
+			
 
                      <td><?php echo $row['name']; ?></td>
 
@@ -326,7 +382,7 @@ $clients = PersonData::getClients();
 
              
 
-            echo $query;
+           
 
              
 
@@ -335,6 +391,10 @@ $clients = PersonData::getClients();
 	<h2>No hay operaciones</h2>
 
 	<p>El rango de fechas seleccionado no proporciono ningun resultado de operaciones.</p>
+
+
+
+	<p><?php	echo $date2; ?></p>
 
 </div>
 

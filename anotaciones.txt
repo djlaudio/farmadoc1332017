@@ -1,0 +1,10 @@
+SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at FROM disease d INNER JOIN operation o ON d.id = o.idDisease INNER JOIN sell s ON o.sell_id = s.id INNER JOIN product p ON p.id = o.product_id where created_at> 2017-11-21 and created_at < 2017-11-21 SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at FROM disease d INNER JOIN operation o ON d.id = o.idDisease INNER JOIN sell s ON o.sell_id = s.id INNER JOIN product p ON p.id = o.product_id where created_at> 2017-11-21 and created_at < 2017-11-21 
+Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/djluig01/public_html/segudocpro.com/farmadoc/ventas/core/modules/index/view/pacienteReports2/widget-default.php on line 249
+SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at FROM disease d INNER JOIN operation o ON d.id = o.idDisease INNER JOIN sell s ON o.sell_id = s.id INNER JOIN product p ON p.id = o.product_id where created_at> 2017-11-21 and created_at < 2017-11-21
+No hay operaciones
+El rango de fechas seleccionado no proporciono ningun resultado de operaciones.
+
+
+
+
+SELECT d.name enfermedad, s.id, o.q, p.name producto, d.name, s.created_at FROM disease d INNER JOIN operation o ON d.id = o.idDisease INNER JOIN sell s ON o.sell_id = s.id INNER JOIN product p ON p.id = o.product_id where created_at> 2017-11-21 and created_at < 2017-11-21	Factura	Fecha	Enfermedad
