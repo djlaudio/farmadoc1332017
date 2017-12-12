@@ -79,7 +79,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
               <ul class="dropdown-menu">
                 <li><a href="index.php?view=sellreports">Ventas</a></li>
                 <li><a href="index.php?view=reports"> Inventario</a></li>
-                <li><a href="index.php?view=pacienteReports"> Reporte Paciente</a></li>
+                <li><a href="index.php?view=pacienteReports2"> Reporte Paciente</a></li>
               </ul>
             </li>
           <?php if($u->is_admin):?>
