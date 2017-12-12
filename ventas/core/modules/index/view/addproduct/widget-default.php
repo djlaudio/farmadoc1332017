@@ -49,7 +49,7 @@ if($_POST["q"]!="" || $_POST["q"]!="0"){
  $op->operation_type_id=OperationTypeData::getByName("entrada")->id;
  $op->q= $_POST["q"];
  $op->sell_id="NULL";
- $op->id_disease="0"
+ $op->id_disease=0;
 $op->is_oficial=1;
 $op->add();
 }
