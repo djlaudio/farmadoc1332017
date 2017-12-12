@@ -200,7 +200,7 @@ $(document).ready(function(){
 
 				FROM disease d
 
-				INNER JOIN operation o ON d.id = o.idDisease
+				INNER JOIN operation o ON d.id =  o.id_disease
 
 				INNER JOIN sell s ON o.sell_id = s.id
 
@@ -224,7 +224,7 @@ $the_Client= PersonData::getById($client_id);
 
   FROM disease d
 
-  INNER JOIN operation o ON d.id = o.idDisease
+  INNER JOIN operation o ON d.id = o.id_disease
 
   INNER JOIN sell s ON o.sell_id = s.id
 
@@ -244,7 +244,7 @@ $the_Client= PersonData::getById($client_id);
 
 // 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 
-$find= mysqli_query($link,$query);
+				$find= mysqli_query($link,$query);
 
 			} 
 
