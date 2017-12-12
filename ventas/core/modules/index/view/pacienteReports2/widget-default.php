@@ -4,6 +4,8 @@ include ('connect_db.php');
 
 $clients = PersonData::getClients();
 
+$the_Client= new PersonData();
+
 ?>
 
 <section class="content">
@@ -214,7 +216,7 @@ $(document).ready(function(){
 
 
 
-
+$the_Client= PersonData::getById($client_id);
 
 			
 
@@ -258,21 +260,25 @@ $find= mysqli_query($link,$query);
 
                  <table class="table table-bordered table-hover	">
 
-                 
+
+
+				 
+
+                Paciente: 
+
+					 <?php echo $the_Client->name . " " . $the_Client->lastname ; ?>
+
+					 <br>
+
+					 Fecha de nacimiento: 
+
+					 <?php echo $the_Client->created_at; ?>
+
+					 <br>
 
              
 
-             
-
-                 <?php
-
-             
-
-           
-
-             
-
-             ?>
+                
 
              <thead>
 
@@ -280,9 +286,7 @@ $find= mysqli_query($link,$query);
 
                      <th> 
 
-             
-
-		   Producto
+            
 
 		   
 
