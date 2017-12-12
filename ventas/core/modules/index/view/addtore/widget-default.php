@@ -6,7 +6,6 @@ if(!isset($_SESSION["reabastecer"])){
 	$product = array("product_id"=>$_POST["product_id"],"q"=>$_POST["q"]);
 	$_SESSION["reabastecer"] = array($product);
 
-
 	$cart = $_SESSION["reabastecer"];
 
 ///////////////////////////////////////////////////////////////////
@@ -22,10 +21,6 @@ $cart = $_SESSION["reabastecer"];
 $index=0;
 
 $q = OperationData::getQYesF($_POST["product_id"]);
-
-
-
-
 
 $can = true;
 
