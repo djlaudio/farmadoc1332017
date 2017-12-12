@@ -195,8 +195,9 @@ $credito->idSell= $s[1];
 			$op = new OperationData();
 			 $op->product_id = $c["product_id"] ;
 			 $op->operation_type_id=OperationTypeData::getByName("salida")->id;
-			 $op->sell_id=$c["disease_id"] ;
+			 $op->sell_id=$s[1];
 			 $op->q= $c["q"];
+			 $op->id_disease=$c["disease_id"] ;
 			//$op->id_disease= $c["disease_id"];
 			if(isset($_POST["is_oficial"])){
 				$op->is_oficial = 1;
