@@ -358,7 +358,7 @@ $the_Client= PersonData::getById($client_id);
 
 			
 
-                     
+                     <td><?php echo $row['enfermedad']; ?></td>
 
              
 
