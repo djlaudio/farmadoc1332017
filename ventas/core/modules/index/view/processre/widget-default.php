@@ -77,7 +77,7 @@ $credito->idSell= $s[1];
 			 $op->operation_type_id=1; // 1 - entrada
 			 $op->sell_id=$s[1];
 			 $op->q= $c["q"];
- 			 $op->id_disease=$c["disease_id"] ;
+ 			 $op->id_disease=0 ;
 			if(isset($_POST["is_oficial"])){
 				$op->is_oficial = 1;
 			}
