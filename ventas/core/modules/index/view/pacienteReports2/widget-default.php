@@ -244,6 +244,8 @@ $the_Client= PersonData::getById($client_id);
 
 // 			$operations = SellData::getAllLinesByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 
+  echo $query; 
+
 				$find= mysqli_query($link,$query);
 
 			} 
