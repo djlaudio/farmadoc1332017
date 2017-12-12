@@ -276,7 +276,7 @@ $the_Client= PersonData::getById($client_id);
 
 					 <?php echo $the_Client->created_at; ?>
 
-					 <?php echo $query;
+					 <?php echo $query;?>
 
 					 <br>
 
