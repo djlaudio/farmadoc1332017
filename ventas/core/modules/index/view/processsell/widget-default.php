@@ -124,7 +124,7 @@ $_SESSION["errors"] = $errors;
 			$sell->total = $_POST["total"];
 			$sell->discount = $_POST["discount"];
 			$sell->esCompra = 0;
-            $sell->idDisease= $_POST["disease_id"];
+            $sell->idDisease= 0;
             	
             $sell->custom_client_name= $_POST["nombreClienteCustom"];
 
