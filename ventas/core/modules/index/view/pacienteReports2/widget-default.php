@@ -392,23 +392,7 @@ $the_Client= PersonData::getById($client_id);
 
 <div class="jumbotron">
 
-<?php
 
-             
-
-           
-
-             
-
-             ?>
-
-	<h2>No hay operaciones</h2>
-
-	<p>El rango de fechas seleccionado no proporciono ningun resultado de operaciones.</p>
-
-
-
-	<p><?php	echo $date2; ?></p>
 
 </div>
 
