@@ -266,17 +266,7 @@ $the_Client= PersonData::getById($client_id);
 
 				 
 
-                Paciente: 
-
-					 <?php echo $the_Client->name . " " . $the_Client->lastname ; ?>
-
-					 <br>
-
-					 Fecha de nacimiento: 
-
-					 <?php echo $the_Client->created_at; ?>
-
-					 <?php echo $query;?>
+               
 
 					 <br>
 
@@ -392,6 +382,18 @@ $the_Client= PersonData::getById($client_id);
 
 <div class="jumbotron">
 
+
+ Paciente: 
+
+					 <?php echo $the_Client->name . " " . $the_Client->lastname ; ?>
+
+					 <br>
+
+					 Fecha de registro: 
+
+					 <?php echo $the_Client->created_at; ?>
+
+					 <?php echo $query;?>
 
 
 </div>
