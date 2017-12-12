@@ -48,13 +48,13 @@ $categories = CategoryData::getAll();
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Precio venta sin recomendado (Con IV)*</label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio venta sin IV*</label>
     <div class="col-md-6">
       <input type="text" name="price_out_wo_iv" required class="form-control" id="price_out_wo_iv" placeholder="Precio de entrada">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Precio de venta sin IV </label>
+    <label for="inputEmail1" class="col-lg-2 control-label">Precio de venta recomendado (Con IV)*</label>
     <div class="col-md-6">
       <input type="text" name="price_out" required class="form-control" id="price_out" placeholder="Precio de salida">
     </div>
