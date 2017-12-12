@@ -10,3 +10,8 @@ Pay per github
 
 
 Abono data: Removed in removed abonodata... temporary
+
+Delete category
+To show some error when added product already exists
+Afiliaciones, first field
+To delete clients?
