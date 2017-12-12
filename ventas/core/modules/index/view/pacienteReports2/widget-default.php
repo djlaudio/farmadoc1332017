@@ -194,7 +194,7 @@ $(document).ready(function(){
 
 				INNER JOIN sell s ON o.sell_id = s.id
 
-				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "'";
+				INNER JOIN product p ON p.id = o.product_id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "' order by s.created_at desc";
 
 							$countSells=mysqli_query($link,"SELECT count(*)
 
@@ -204,7 +204,7 @@ $(document).ready(function(){
 
 				INNER JOIN sell s ON o.sell_id = s.id
 
-				INNER JOIN product p ON p.id = o.product_id ");
+				INNER JOIN product p ON p.id = o.product_id order by s.created_at desc");
 
 				
 
@@ -230,7 +230,7 @@ $the_Client= PersonData::getById($client_id);
 
   INNER JOIN product p ON p.id = o.product_id
 
-  INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "' and pe.id= " . $client_id . "";
+  INNER JOIN person pe ON s.person_id = pe.id where s.created_at> '" .$date1  . "' and s.created_at <= '" .$date2  . "' and pe.id= " . $client_id . " order by s.created_at desc";
 
 // 							$countSells=mysqli_query($link,"SELECT count(*)
 
