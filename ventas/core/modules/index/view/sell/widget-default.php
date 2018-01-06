@@ -240,8 +240,9 @@ $clients = PersonData::getClients();
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname." - ".$client->cedula;?></option>
     <?php endforeach;?>
     	</select>
+       <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
     </div>
-    <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
+
   </div>
   
   <div class="form-group" id="divClientCustom">  </DIV>

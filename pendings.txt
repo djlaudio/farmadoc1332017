@@ -37,6 +37,9 @@ Lista de alergias de un paciente
 Buscar lista de clientes personalizados, por apellidos y nombres
 Pregunta de si desea agregar un nuevo cliente?
 
+
+Que los clientes solo puedan tener una cedula.
+
 Solo permitir una cedula por cliente
 
 Recomendaciones para enfermedad. A partir de una enfermedad, cargar pastillas recomendadas. Por ejemplo para la alergia y tiene un bebe
@@ -48,5 +51,11 @@ Info de cuantas pastillas por dia son
 quitar padecimiento de lista de venta, ya que es por producto
 
 en expediente paciente, que se muestre nombre completo y se pueda buscar por cedula
+
+
+
+
+
+
 
 
