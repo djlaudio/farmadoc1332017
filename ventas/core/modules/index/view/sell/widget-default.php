@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 	<h1>Venta</h1>
-	<p><b>Buscar producto por nombre o por codigo:</b></p>
+	<p><b>Buscar un producto por nombre o por codigo:</b></p>
 		<form id="searchp">
 		<div class="row">
 			<div class="col-md-6">
@@ -235,7 +235,6 @@ $clients = PersonData::getClients();
     ?>
     <select name="client_id" id="client_id" class="form-control"  onchange="loadInfoCliente(this.value);">
     <option value="0"><Estimado cliente></option>
-      <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
     <?php foreach($clients as $client):?>
 
     	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname." - ".$client->cedula;?></option>
@@ -243,6 +242,7 @@ $clients = PersonData::getClients();
     	</select>
     </div>
   </div>
+  <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
   <div class="form-group" id="divClientCustom">  </DIV>
   <div class="form-group" id="divDisease">
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
