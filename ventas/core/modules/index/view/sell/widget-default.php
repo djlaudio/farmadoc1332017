@@ -241,8 +241,9 @@ $clients = PersonData::getClients();
     <?php endforeach;?>
     	</select>
     </div>
+    <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
   </div>
-  <a href="index.php?view=newprovider" class="btn btn-default"><i class='fa fa-truck'></i> Nuevo Cliente</a>
+  
   <div class="form-group" id="divClientCustom">  </DIV>
   <div class="form-group" id="divDisease">
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
