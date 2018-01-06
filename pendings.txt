@@ -16,3 +16,37 @@ To show some error when added product already exists
 Afiliaciones, first field
 To delete clients?
 Logo of farmadoc...
+
+
+Precios sin IV Y CON iv para cada producto, no necesariamente a la factura en si
+Ver venta luego de reporte paciente
+Importar excel de punto de venta
+
+
+
+
+Creditos: Mandar notificaciones a los clientes de factura vencida
+
+
+
+
+Historial de Costos de productos
+
+Control de producto que mas ganancia generan
+Lista de alergias de un paciente
+Buscar lista de clientes personalizados, por apellidos y nombres
+Pregunta de si desea agregar un nuevo cliente?
+
+Solo permitir una cedula por cliente
+
+Recomendaciones para enfermedad. A partir de una enfermedad, cargar pastillas recomendadas. Por ejemplo para la alergia y tiene un bebe
+Fotos de clientes
+
+Info de cuantas pastillas por dia son
+
+
+quitar padecimiento de lista de venta, ya que es por producto
+
+en expediente paciente, que se muestre nombre completo y se pueda buscar por cedula
+
+
