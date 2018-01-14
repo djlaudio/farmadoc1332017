@@ -248,23 +248,7 @@ $clients = PersonData::getClients();
   <div class="form-group" id="divClientCustom">  </DIV>
   <div class="form-group" id="divDisease">
    <!-- Lo siguiente forma parte solo del sistema de farmacias -->
-  <div class="form-group">
-    <label for="padecimiento" class="col-lg-2 control-label">Padecimiento</label>
-    <div class="col-lg-10">
-
-
- <?php
-$diseases = DiseaseData::getAll();
-    ?>
-    <select name="disease_id" id="disease_id" class="form-control">
-   
-    <?php foreach($diseases as $disease):?>
-      <option value="<?php echo $disease->id;?>"><?php echo $disease->name;?></option>
-    <?php endforeach;?>
-      </select>
-      
-    </div>
-  </div>
+  
 
 
  
