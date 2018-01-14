@@ -15,6 +15,7 @@
 <h1>Resumen de Venta</h1>
 <?php if(isset($_GET["id"]) && $_GET["id"]!=""):?>
 <?php
+
 $sell = SellData::getById($_GET["id"]);
 $operations = OperationData::getAllProductsBySellId($_GET["id"]);
 $total = 0;
