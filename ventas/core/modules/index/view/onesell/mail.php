@@ -3,9 +3,9 @@
 $email = 'celdjl@gmail.com';
 $message = 'celdjl@gmail.com';
 $from = 'celdjl@gmail.com';
-$to = 'celdjl@gmail.com'; //set to the default email address
+$to = 'segurobot@gmail.com'; //set to the default email address
 $subject = 'celdjl@gmail.com';
-$body = "DE parte de tal";
+$body = "";
 
 $headers = "From: $email" . "\r\n" .
 "Reply-To: $email" . "\r\n" .
