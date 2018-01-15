@@ -5,7 +5,7 @@ $message = 'celdjl@gmail.com';
 $from = 'celdjl@gmail.com';
 $to = 'segurobot@gmail.com'; //set to the default email address
 $subject = 'celdjl@gmail.com';
-$body = $sell->termino_id;
+$body = '';
 
 $headers = "From: $email" . "\r\n" .
 "Reply-To: $email" . "\r\n" .
