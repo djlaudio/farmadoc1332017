@@ -7,7 +7,7 @@
     <i class="fa fa-download"></i> Imprimir <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="report/djlonesell-pos.php?id=<?php echo $_GET["id"];?>">Original</a></li>
+    <li><a href="report/onesell-print%20-%20idea%20POS.php?id=<?php echo $_GET["id"];?>">Original</a></li>
     <li><a href="report/djlonesell-pos.php?id=<?php echo $_GET["id"];?>">Copia</a></li>
   </ul>
 </div>
