@@ -347,7 +347,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 	<script type="text/javascript">
     function PrintDiv() {
        var divToPrint = document.getElementById('divToPrint');
-       var popupWin = window.open('', '_blank', 'width=200,height=2000');
+       var popupWin = window.open('', '_blank', 'width=400,height=1000');
        popupWin.document.open();
        popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
         popupWin.document.close();
