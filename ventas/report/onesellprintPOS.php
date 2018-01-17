@@ -137,7 +137,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
 
-      <div class="invoice" id="divToPrint" style="width:20pt;height:200pt;">
+      <div class="invoice" id="divToPrint" style="width:0pt;height:0pt;">
 
 
 
