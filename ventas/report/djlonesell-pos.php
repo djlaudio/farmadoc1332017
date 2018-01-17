@@ -123,13 +123,13 @@ $sell->anulada  == 0 ? $c= "En Firme" : $c= "Anulada";
     
 
         <div class="company-address">
-           <CENTER> FARMADOC</CENTER>
+           FARMADOC
 			
 			<br />
-			<CENTER>LA SALUD EN SUS MANOS </CENTER>
+			LA SALUD EN SUS MANOS
 		<br />
 			
-			<CENTER>Ced Juridica: </CENTER>
+			Ced Juridica:
 			<br />
 			
 			Tel Tienda XXXX-XXXX//Servicio al cliente
