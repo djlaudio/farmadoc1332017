@@ -1,7 +1,7 @@
 <html>
 
     <head>
-    <title>FASTNESS</title>
+    <title>FARMADOC</title>
         <style type="text/css">
         body {
             font-family: Verdana;;
@@ -225,17 +225,17 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
           <div class="company-address">
-             <CENTER> FASTNESS</CENTER>
+             <CENTER> FARMADOC</CENTER>
 
   			<br />
-  			<CENTER>YOUNG SPIRIT, EXTREME LIFESTYLE </CENTER>
+  			<CENTER> </CENTER>
   		<br />
 
-  			<CENTER>CED FASTNESS</CENTER>
+  			<CENTER>87076050</CENTER>
   			<br />
 
 
-  			<CENTER>24456235</CENTER>
+  			<CENTER></CENTER>
   <br />
 
 
@@ -247,7 +247,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
   			Factura <?php echo($_GET["id"]);  ?>
   <br />
 
-   22/12/2016
+   
   <br />
 
   			<?php echo($a);  ?>
@@ -371,7 +371,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
   <br />
   <br />
-  www.fastness.us
+  www.segudocpro.com/farmadoc
   <br />
   <br />
 
