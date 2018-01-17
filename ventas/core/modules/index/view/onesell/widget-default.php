@@ -4,11 +4,11 @@
 
 <div class="btn-group pull-right">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <i class="fa fa-download"></i> PDF <span class="caret"></span>
+    <i class="fa fa-download"></i> Imprimir <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="report/onesell-word.php?id=<?php echo $_GET["id"];?>">Original</a></li>
-    <li><a href="report/onesell-copy.php?id=<?php echo $_GET["id"];?>">Copia</a></li>
+    <li><a href="report/djlonesell-pos.php?id=<?php echo $_GET["id"];?>">Original</a></li>
+    <li><a href="report/djlonesell-pos.php?id=<?php echo $_GET["id"];?>">Copia</a></li>
   </ul>
 </div>
 <div class="btn-group pull-right">
