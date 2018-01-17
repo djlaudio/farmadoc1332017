@@ -142,13 +142,13 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
           <div class="company-address">
-             <CENTER> FARMADOC</CENTER>
+             FARMADOC
 
   			<br />
   			<CENTER> </CENTER>
   		<br />
 
-  			<CENTER>87076050</CENTER>
+  			87076050
   			<br />
 
 
