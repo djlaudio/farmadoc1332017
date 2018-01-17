@@ -322,10 +322,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
   $precioLinea=$operation->q*$product->price_out;
   echo("<td class='text-right'>$precioLinea</td>");
 
-  //$total+=$operation->q*$product->price_out;
-  $subTotal=$sell->total;
-  $descuento=$sell->discount;
-  $Total=$sell->total - $sell->discount;
+
 
 
 
