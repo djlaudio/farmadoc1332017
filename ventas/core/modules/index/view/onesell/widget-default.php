@@ -2,7 +2,15 @@
 
 
 
-
+<div class="btn-group pull-right">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-download"></i> PDF <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="report/onesell-word.php?id=<?php echo $_GET["id"];?>">Original</a></li>
+    <li><a href="report/onesell-copy.php?id=<?php echo $_GET["id"];?>">Copia</a></li>
+  </ul>
+</div>
 <div class="btn-group pull-right">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     <i class="fa fa-download"></i> PDF <span class="caret"></span>
@@ -16,7 +24,7 @@
 <?php if(isset($_GET["id"]) && $_GET["id"]!=""):?>
 <?php
 
-include ('mail.php');
+
 
 $sell = SellData::getById($_GET["id"]);
 $operations = OperationData::getAllProductsBySellId($_GET["id"]);
