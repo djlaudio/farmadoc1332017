@@ -408,12 +408,6 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
 
-SubTotal:    <?php echo($subTotal);  ?> colones <br />
-Descuento:
-<br />
-iv:
-<br />
-Total:
 
 
 
@@ -422,7 +416,8 @@ Total:
 
 
 
-    </body>
+
+  
 
 
 
