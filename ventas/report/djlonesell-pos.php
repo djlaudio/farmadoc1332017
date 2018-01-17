@@ -123,17 +123,17 @@ $sell->anulada  == 0 ? $c= "En Firme" : $c= "Anulada";
     
 
         <div class="company-address">
-           <CENTER> FASTNESS CLOTHING</CENTER>
+           <CENTER> FARMADOC</CENTER>
 			
 			<br />
-			<CENTER>OUTLET DE CALZADO </CENTER>
+			<CENTER>LA SALUD EN SUS MANOS </CENTER>
 		<br />
 			
-			<CENTER>Ced Juridica: 20344041621</CENTER>
+			<CENTER>Ced Juridica: </CENTER>
 			<br />
 			
-			Tel Tienda 4030-5859//Servicio al cliente
-			8736-0887//Cobros 8869-8748
+			Tel Tienda XXXX-XXXX//Servicio al cliente
+			87076050
 <br />
 
 			
@@ -227,10 +227,10 @@ Total:    <?php echo($total);  ?> colones
 
 GRACIAS POR PREFERIRNOS
 <br />
-GARANTIA POR DEFECTOS DE FABRICA: 45 DIAS
+
 <br />
 <br />
-ENCUENTRANOS EN FACEBOOK COMO FASTNESS CLOTHING
+ENCUENTRANOS EN FACEBOOK COMO 
 <br />
 <br />
 <br />
